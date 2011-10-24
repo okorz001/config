@@ -15,7 +15,7 @@ set showcmd
 set showmatch
 set showmode
 set laststatus=2
-set statusline=%F%r%m%=%w%y[%l,%v][%p%%]
+set statusline=%F%([%R%H%W%M]%)%=%y[%l,%v][%p%%]
 
 " It is God's will that all tabs will be replaced with 4 spaces.
 set shiftwidth=4
@@ -33,9 +33,12 @@ set foldlevel=100
 " Toggle folds with spacebar.
 nmap <space> za
 
-" Matching.
+" Searching.
 set hlsearch
 set incsearch
+" Center the matched line.
+nmap n nzz
+nmap N Nzz
 
 " Move backups out of the current directory.
 set backup
