@@ -1,0 +1,34 @@
+# ~/.screenrc
+
+# Turn off the copyright message. :)
+startup_message off
+
+# Automagic titles for shell tabs.
+# Requires the $PROMPT_COMMAND environment variable to be set correctly.
+shelltitle '$ |bash'
+
+# Detach on hangup.
+autodetach on
+
+# Buffer output.
+defscrollback 4096
+
+# Use an alternate buffer for curses apps (e.g. vim) so they don't pollute the
+# terminal after they are closed.
+altscreen on
+
+# Add mouse wheel scrolling support. Don't really think this is useful, but it 
+# makes screen consistent with GUI terminals (e.g. gnome-terminal).
+termcapinfo xterm*|rxvt* ti@:te@
+
+# List all tabs and the current time at the bottom of the display.
+caption always "%{=b kw}%-Lw%{kR}%n%f %t%{-}%+Lw %=%m/%d/%y%C %A"
+
+# This one-liner will grab the name of this screen session.
+backtick 0 5 60 sh -c "screen -ls | egrep -o `ps -p $$ -o ppid --no-headers`'\S+'"
+
+# Print messages to the display instead of to the X window title.
+hardstatus off
+
+# Print the sessionname in the X window title. Do nothing if not in X.
+hardstatus ignore "screen - %0`"
