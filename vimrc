@@ -6,6 +6,10 @@ set nocompatible
 " Return to command mode if two j's are typed.
 map! jj <ESC>
 
+" Forgive me if I don't release the shift fast enough.
+cmap W w
+cmap Q q
+
 " Detect filetypes.
 filetype on
 
