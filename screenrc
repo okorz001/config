@@ -22,13 +22,13 @@ altscreen on
 termcapinfo xterm*|rxvt* ti@:te@
 
 # List all tabs and the current time at the bottom of the display.
-caption always "%{=b kw}%-Lw%{kR}%n%f %t%{-}%+Lw %=%m/%d/%y%C %A"
+caption always "%{=b kw}%-Lw%{kR}%n%f %t%{-}%+Lw %=%m/%d/%y %C %A"
 
 # This one-liner will grab the name of this screen session.
-backtick 0 5 60 sh -c "screen -ls | egrep -o `ps -p $$ -o ppid --no-headers`'\S+'"
+backtick 0 5 60 sh -c "ls -1 /var/run/screen/S-`whoami` | grep `ps -p $$ -o ppid --no-headers`"
 
 # Print messages to the display instead of to the X window title.
 hardstatus off
 
 # Print the sessionname in the X window title. Do nothing if not in X.
-hardstatus ignore "screen - %0`"
+hardstatus ignore "%?%0`%:unknown%? - screen"
