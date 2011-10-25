@@ -45,9 +45,9 @@ if [ -x /usr/bin/tput ] && tput setaf 1 &>/dev/null; then
     alias egrep='egrep --color=auto'
 
     # Define some ANSI color codes.
-    green='\033[01;32m'
-    blue='\033[01;34m'
-    none='\033[00m'
+    green='\[\e[01;32m\]'
+    blue='\[\e[01;34m\]'
+    none='\[\e[00m\]'
 fi
 
 # Set a (potentially) colorful prompt.
