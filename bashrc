@@ -4,6 +4,9 @@
 # Abort if this isn't a login shell.
 [ -z "$PS1" ] && return
 
+# Get rid of that stupid command not found handler.
+unset -f command_not_found_handle
+
 # Check my home directory for programs and libraries.
 export PATH="$HOME/bin:$PATH"
 export LD_LIBRARY_PATH="$HOME/lib:$LD_LIBRARY_PATH"
@@ -82,17 +85,15 @@ if which ccache &>/dev/null; then
     export PATH="/usr/lib/ccache:$PATH"
 fi
 
+# Use vim for text editing. Fallback to vi if we're on some sad POS.
+if which vim &>/dev/null; then
+	export EDITOR=vim
+else
+	export EDITOR=vi
+fi
+
 # Use less for paging.
 export PAGER=less
-
-# Use vi for text editing.
-export EDITOR=vi
-export SVN_EDITOR=$EDITOR
-
-# But really use vim if we can.
-if which vim &>/dev/null; then
-	alias vi='vim'
-fi
 
 # Tell me where my files went.
 alias cp='cp -v'
