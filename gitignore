@@ -23,6 +23,10 @@ doc/
 *.o
 *.a
 *.so
+*.ko
+
+# Makefile dependency files.
+*.d
 
 # Java
 *.class
