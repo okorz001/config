@@ -1,0 +1,31 @@
+# ~/.gitignore
+
+# Any hidden files that need to be tracked will have to be explicitly negated.
+.*
+
+# Git merge backups.
+*.orig
+
+# These are usually generated from other tracked files.
+bin/
+doc/
+
+# Editor temporary files.
+*~
+*.swp
+
+# Common backup extension.
+*.bak
+
+# C/C++
+*.pch
+*.o
+*.a
+*.so
+
+# Java
+*.class
+
+# Python
+*.pyc
+*.pyo

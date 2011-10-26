@@ -1,0 +1,43 @@
+# ~/.gitconfig
+
+[user]
+# User name for commits.
+name = Oscar Korz
+
+# Email for commits.
+email = okorz001@gmail.com
+
+[github]
+# Github account name.
+user = okorz001
+
+[core]
+# Editor for commit messages.
+editor = vim
+
+# Pager for multi-screen output.
+pager = less -FSRXx4
+
+# A file of exclude patterns to apply to all repos.
+excludesfile = ~/.gitignore
+
+[merge]
+# Create local, remote and original.
+conflictstyle = diff3
+
+# Use vimdiff to merge in a terminal.
+tool = vimdiff
+
+[color]
+# Colorize all output if the terminal supports it.
+ui = auto
+
+[alias]
+# Two-letter abbreviations because I'm lazy.
+br = branch
+ci = commit
+co = checkout
+st = status
+
+# Show the last commit.
+tip = log -n 1
