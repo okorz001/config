@@ -51,11 +51,11 @@ set laststatus=2
 " position in the buffer.
 set statusline=%F%([%R%H%W%M]%)%=%y[%l,%v][%p%%]
 
-" Insert spaces instead of a tab character when <Tab> is pressed!
-" A tab character can be inserted with <C-v><Tab>
+" Insert spaces instead of a tab character when <TAB> is pressed!
+" A tab character can be inserted with <C-V><TAB>
 set expandtab
 
-" Number of spaces inserted by <Tab>.
+" Number of spaces inserted by <TAB>.
 set softtabstop=4
 
 " Number of virtual spaces to display for each tab character.
@@ -85,7 +85,7 @@ set foldignore="#"
 set foldlevel=100
 
 " Toggle folds with spacebar.
-nmap <space> za
+nmap <SPACE> za
 
 " Search for the expression as it's being typed.
 set incsearch
@@ -112,8 +112,14 @@ set writebackup
 " Look for a tags file all the way up the filesystem.
 set tags=.tags;/,tags;/,TAGS;/
 
-" Move between split windows.
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+" Move between splits.
+map <C-J> <C-W>j
+map <C-K> <C-W>k
+map <C-H> <C-W>h
+map <C-L> <C-W>l
+
+" Move between splits in insert mode.
+map! <C-J> <ESC><C-J>
+map! <C-K> <ESC><C-K>
+map! <C-H> <ESC><C-H>
+map! <C-L> <ESC><C-L>
