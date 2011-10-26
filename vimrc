@@ -1,4 +1,5 @@
 " ~/.vimrc
+" vim:ft=vim:
 
 " vi compatibilty must be disabled to allow most features.
 set nocompatible

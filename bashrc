@@ -1,4 +1,5 @@
 # ~/.bashrc
+# vim:ft=sh:
 
 # Abort if this isn't a login shell.
 [ -z "$PS1" ] && return

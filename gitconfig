@@ -1,4 +1,5 @@
 # ~/.gitconfig
+# vim:ft=gitconfig:
 
 [user]
 # User name for commits.

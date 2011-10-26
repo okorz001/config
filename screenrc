@@ -1,4 +1,5 @@
 # ~/.screenrc
+# vim:ft=screen:
 
 # Turn off the copyright message. :)
 startup_message off

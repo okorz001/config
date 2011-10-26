@@ -1,4 +1,5 @@
 # ~/.gitignore
+# vim:ft=conf:
 
 # Any hidden files that need to be tracked will have to be explicitly negated.
 .*
