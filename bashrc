@@ -102,3 +102,22 @@ alias mv='mv -v'
 # Sometimes I forget these aren't real commands.
 alias ll='ls -lh'
 alias la='ll -A'
+
+# Here's a wrapper for which that handles aliases, builtins and functions.
+# This could screw up commands relying on which's output if $1 is not a file.
+# Unlike which, this only handles one argument.
+which () {
+	case `type -t "$1"` in
+	alias)
+		alias "$1"
+		;;
+	function)
+		declare -f "$1"
+		;;
+	builtin)
+		echo "$1 is a builtin"
+		;;
+	*)
+		/usr/bin/which "$1"
+	esac
+}
