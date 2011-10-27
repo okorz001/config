@@ -2,7 +2,7 @@
 # vim:ft=sh:
 
 # Abort if this isn't a login shell.
-[ -z "$PS1" ] && return
+[[ -z "$PS1" ]] && return
 
 # Get rid of that stupid command not found handler.
 unset -f command_not_found_handle
@@ -41,12 +41,12 @@ PROMPT_COMMAND="history -a; history -r"
 export LESS="-FSRXx4"
 
 # Use lesspipe. See lesspipe(1) for more info.
-[ -x /usr/bin/lesspipe ] && eval `lesspipe`
+[[ -x /usr/bin/lesspipe ]] && eval "$(lesspipe)"
 
 # Detect if this terminal type supports ANSI colors.
-if [ -x /usr/bin/tput ] && tput setaf 1 &>/dev/null; then
+if [[ -x /usr/bin/tput ]] && tput setaf 1 &>/dev/null; then
     # Enable ls color support. See dircolors(1) for more info.
-    [ -x /usr/bin/dircolors ] && eval `dircolors -b`
+    [[ -x /usr/bin/dircolors ]] && eval "$(dircolors -b)"
 
     # Make UNIX beautiful.
     alias ls="ls --color=auto"
@@ -85,7 +85,7 @@ screen*)
 esac
 
 # Turn on completion unless we are in strict POSIX mode.
-if [ -r /etc/bash_completion ] && ! shopt -oq posix; then
+if [[ -r /etc/bash_completion ]] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
@@ -116,7 +116,7 @@ alias la='ll -A'
 # This could screw up commands relying on which's output if $1 is not a file.
 # Unlike which, this only handles one argument.
 which () {
-	case `type -t "$1"` in
+    case "$(type -t "$1")" in
 	alias)
 		alias "$1"
 		;;
