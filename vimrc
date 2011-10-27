@@ -122,3 +122,11 @@ map! <C-J> <ESC><C-J>
 map! <C-K> <ESC><C-K>
 map! <C-H> <ESC><C-H>
 map! <C-L> <ESC><C-L>
+
+" Move between buffers.
+map <C-N> :bn!<RETURN>
+map <C-P> :bN!<RETURN>
+
+" Move between buffers in insert mode.
+map! <C-N> <ESC><C-N>
+map! <C-P> <ESC><C-P>
