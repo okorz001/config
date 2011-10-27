@@ -7,10 +7,6 @@
 # Get rid of that stupid command not found handler.
 unset -f command_not_found_handle
 
-# Check my home directory for programs and libraries.
-export PATH="$HOME/bin:$PATH"
-export LD_LIBRARY_PATH="$HOME/lib:$LD_LIBRARY_PATH"
-
 # Check if the window size has been adjusted.
 shopt -s checkwinsize
 
@@ -36,12 +32,6 @@ HISTIGNORE="exit:clear:ls:ll:la:screen:vim"
 
 # Save and update history after every command.
 PROMPT_COMMAND="history -a; history -r"
-
-# Set default flags for less.
-export LESS="-FSRXx4"
-
-# Use lesspipe. See lesspipe(1) for more info.
-[[ -x /usr/bin/lesspipe ]] && eval "$(lesspipe)"
 
 # Detect if this terminal type supports ANSI colors.
 if [[ -x /usr/bin/tput ]] && tput setaf 1 &>/dev/null; then
@@ -90,21 +80,6 @@ esac
 if [[ -r /etc/bash_completion ]] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-
-# Use ccache if we've got it.
-if which ccache &>/dev/null; then
-    export PATH="/usr/lib/ccache:$PATH"
-fi
-
-# Use vim for text editing. Fallback to vi if we're on some sad POS.
-if which vim &>/dev/null; then
-	export EDITOR=vim
-else
-	export EDITOR=vi
-fi
-
-# Use less for paging.
-export PAGER=less
 
 # Tell me where my files went.
 alias cp='cp -v'
