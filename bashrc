@@ -29,6 +29,9 @@ HISTCONTROL=erasedups
 # Append to the history file instead of overwriting.
 shopt -s histappend
 
+# Save and update history after every command.
+PROMPT_COMMAND="history -a; history -r"
+
 # Set default flags for less.
 export LESS="-FSRXx4"
 
@@ -63,13 +66,14 @@ unset blue
 unset none
 
 case "$TERM" in
-xterm*|rxvt*)
+?term*|rxvt*)
     # If we're in a GUI terminal, set a nice window title.
     PS1="\[\e]0;\u@\h: \w\a\]$PS1"
     ;;
 screen*)
     # If we're in screen, support automatic tab titles.
-    PROMPT_COMMAND='echo -ne "\033k\033\\"'
+    # I really want to move this PS1, but that screws up checkwinsize.
+    PROMPT_COMMAND="$PROMPT_COMMAND; echo -ne '\033k\033\\'"
     ;;
 *)
     ;;
