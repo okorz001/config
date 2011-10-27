@@ -47,9 +47,8 @@ set showmode
 set laststatus=2
 
 " Status bar format string.
-" Show the full path, the status of the buffer, the filetype, and our
-" position in the buffer.
-set statusline=%F%([%R%H%W%M]%)%=%y[%l,%v][%p%%]
+" Show the full path, buffer flags, filetype and cursor position.
+set statusline=%<%F%([%R%H%W%M]%)%=\ \ %y[%l,%v]
 
 " Insert spaces instead of a tab character when <TAB> is pressed!
 " A tab character can be inserted with <C-V><TAB>
