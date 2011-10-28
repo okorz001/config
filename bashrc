@@ -45,16 +45,18 @@ export LESS="-FSRXx4"
 
 # Detect if this terminal type supports ANSI colors.
 if [[ -x /usr/bin/tput ]] && tput setaf 1 &>/dev/null; then
-    # Enable ls color support. See dircolors(1) for more info.
-    [[ -x /usr/bin/dircolors ]] && eval "$(dircolors -b)"
+    # Colorize ls. GNU and BSD userland disagree on how to do this.
+    case "$(uname)" in
+    Linux|CYGWIN*)
+        [[ -x /usr/bin/dircolors ]] && eval "$(dircolors -b)"
+        alias ls="ls --color=auto"
+        ;;
+    Darwin)
+        export CLICOLOR=1
+    esac
 
-    # Make UNIX beautiful.
-    alias ls="ls --color=auto"
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+    # Colorize the grep family.
+    export GREP_OPTIONS="--color=auto"
 
     # Define some ANSI color codes.
     green='\[\e[01;32m\]'
