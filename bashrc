@@ -11,13 +11,13 @@ unset -f command_not_found_handle
 shopt -s checkwinsize
 
 # The history file lets command history persist between shells.
-HISTFILE=~/.bash_history
+HISTFILE="$HOME/.bash_history"
 
 # The number of commands to remember.
-HISTSIZE=1024
+HISTSIZE="1024"
 
 # The maximum number of lines in the history file.
-HISTFILESIZE=2048
+HISTFILESIZE="2048"
 
 # Append to the history file instead of overwriting.
 shopt -s histappend
@@ -28,7 +28,7 @@ HISTCONTROL="ignorespace:ignoredups"
 
 # Colon delimited command ignore list using glob syntax.
 # Common argument-less commands are not very interesting.
-HISTIGNORE="exit:clear:ls:ll:la:screen:vim"
+HISTIGNORE="exit:clear:ls:ll:la"
 
 # Save and update history after every command.
 PROMPT_COMMAND="history -a; history -r"
@@ -42,7 +42,7 @@ if [[ -x /usr/bin/tput ]] && tput setaf 1 &>/dev/null; then
         alias ls="ls --color=auto"
         ;;
     Darwin)
-        export CLICOLOR=1
+        export CLICOLOR="1"
     esac
 
     # Colorize the grep family.
@@ -82,28 +82,28 @@ if [[ -r /etc/bash_completion ]] && ! shopt -oq posix; then
 fi
 
 # Tell me where my files went.
-alias cp='cp -v'
-alias mv='mv -v'
+alias cp="cp -v"
+alias mv="mv -v"
 
 # Sometimes I forget these aren't real commands.
-alias ll='ls -lh'
-alias la='ll -A'
+alias ll="ls -lh"
+alias la="ll -A"
 
 # Here's a wrapper for which that handles aliases, builtins and functions.
 # This could screw up commands relying on which's output if $1 is not a file.
 # Unlike which, this only handles one argument.
 which () {
     case "$(type -t "$1")" in
-	alias)
-		alias "$1"
-		;;
-	function)
-		declare -f "$1"
-		;;
-	builtin)
-		echo "$1 is a builtin"
-		;;
-	*)
-		/usr/bin/which "$1"
-	esac
+    alias)
+        alias "$1"
+        ;;
+    function)
+        declare -f "$1"
+        ;;
+    builtin)
+        echo "$1 is a builtin"
+        ;;
+    *)
+        /usr/bin/which "$1"
+    esac
 }
