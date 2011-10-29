@@ -5,12 +5,12 @@
 export PATH="$HOME/bin:$PATH"
 
 # Use ccache if we've got it.
-if which ccache 2>&1 >/dev/null; then
+if which ccache >/dev/null 2>/dev/null; then
     export PATH="/usr/lib/ccache:$PATH"
 fi
 
 # Use vim for text editing. Fallback to vi if we're on some sad POS.
-if which vim 2>&1 >/dev/null; then
+if which vim >/dev/null 2>/dev/null; then
 	export EDITOR="vim"
 else
 	export EDITOR="vi"
@@ -24,9 +24,9 @@ export LESS="-FSRXx4"
 
 # Use the path to find a less preprocessor.
 # Unfortunately, there isn't a standard name for these.
-if which lesspipe 2>&1 >/dev/null; then
+if which lesspipe >/dev/null 2>/dev/null; then
     export LESSOPEN="|`/usr/bin/which lesspipe` %s"
-elif which lesspipe.sh 2>&1 >/dev/null; then
+elif which lesspipe.sh >/dev/null 2>/dev/null; then
     export LESSOPEN="|`/usr/bin/which lesspipe.sh` %s"
 fi
 
