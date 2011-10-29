@@ -1,7 +1,7 @@
 # ~/.bashrc
 # vim:ft=sh:
 
-# Abort if this isn't a login shell.
+# Abort if this isn't an interactive shell.
 [[ -z "$PS1" ]] && return
 
 # Get rid of that stupid command not found handler.
@@ -38,11 +38,13 @@ if [[ -x /usr/bin/tput ]] && tput setaf 1 &>/dev/null; then
     # Colorize ls. GNU and BSD userland disagree on how to do this.
     case "$(uname)" in
     Linux|CYGWIN*)
-        [[ -x /usr/bin/dircolors ]] && eval "$(dircolors -b)"
         alias ls="ls --color=auto"
+        export LS_COLORS="no=00:di=01;34:ln=01;36:so=01;35:pi=01;35:ex=01;32:bd=01;33;40:cd=01;33;40:su=01;37;41:sg=01;37;43:tw=01;37;42:ow=01;37;42"
         ;;
     Darwin)
         export CLICOLOR="1"
+        export LSCOLORS="ExGxFxFxCxDxDxHBHDHCHC"
+        ;;
     esac
 
     # Colorize the grep family.
@@ -72,8 +74,6 @@ screen*)
     # I really want to move this PS1, but that screws up checkwinsize.
     PROMPT_COMMAND="$PROMPT_COMMAND; echo -ne '\033k\033\\'"
     ;;
-*)
-    ;;
 esac
 
 # Turn on completion unless we are in strict POSIX mode.
@@ -88,6 +88,11 @@ alias mv="mv -v"
 # Sometimes I forget these aren't real commands.
 alias ll="ls -lh"
 alias la="ll -A"
+
+# Do math with python.
+calc () {
+    python -c "from math import *; print $@"
+}
 
 # Here's a wrapper for which that handles aliases, builtins and functions.
 # This could screw up commands relying on which's output if $1 is not a file.

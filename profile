@@ -1,6 +1,16 @@
 # ~/.profile
 # vim:ft=sh:
 
+# Some distributions (cough, CentOS) alias which in /etc/profile.
+case `type -t which` in
+alias)
+    unalias which
+    ;;
+function)
+    unset -f which
+    ;;
+esac
+
 # Check my home directory for programs.
 export PATH="$HOME/bin:$PATH"
 
@@ -25,9 +35,9 @@ export LESS="-FSRXx4"
 # Use the path to find a less preprocessor.
 # Unfortunately, there isn't a standard name for these.
 if which lesspipe >/dev/null 2>/dev/null; then
-    export LESSOPEN="|`/usr/bin/which lesspipe` %s"
+    export LESSOPEN="|`which lesspipe` %s"
 elif which lesspipe.sh >/dev/null 2>/dev/null; then
-    export LESSOPEN="|`/usr/bin/which lesspipe.sh` %s"
+    export LESSOPEN="|`which lesspipe.sh` %s"
 fi
 
 # bash is stupid, so explicitly source bashrc for interactive login shells.
