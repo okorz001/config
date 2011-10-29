@@ -1,0 +1,63 @@
+! ~/.Xdefaults
+! vim:ft=xdefaults:
+
+! Shared settings ------------------------------------------------------------!
+
+! Text color.
+*foreground: #AAAAAA
+
+! Background color.
+*background: #000000
+
+! Black.
+*color0: #000000
+*color8: #AAAAAA
+
+! Red.
+*color1: #CD0000
+*color9: #FF0000
+
+! Green.
+*color2: #00CD00
+*color10: #00FF00
+
+! Yellow.
+*color3: #CDCD00
+*color11: #FFFF00
+
+! Blue.
+*color4: #0000CD
+*color12: #0000FF
+
+! Magenta.
+*color5: #CD00CD
+*color13: #FF00FF
+
+! Cyan.
+*color6: #00CDCD
+*color14: #00FFFF
+
+! White.
+*color7: #FAEBD7
+*color15: #FFFFFF
+
+! RXVT Unicode ---------------------------------------------------------------!
+
+! The value of $TERM. More descriptive names seem to mess up termcap.
+URxvt*termName: rxvt
+
+! I don't need a fancy terminal.
+URxvt*transparent: false
+
+! Terminal font.
+URxvt*font: xft:Liberation Mono:pixelsize=12
+URxvt*boldFont: xft:Liberation Mono:pixelsize=12:bold
+
+! Enable a scroll bar.
+URxvt*scrollBar: true
+
+! By default, urxvt puts it on the left side.
+URxvt*scrollBar_right: true
+
+! Other options didn't seem to work correctly.
+URxvt*scrollstyle: rxvt
