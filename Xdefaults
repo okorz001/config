@@ -49,9 +49,9 @@ URxvt*termName: rxvt
 ! I don't need a fancy terminal.
 URxvt*transparent: false
 
-! Terminal font.
-URxvt*font: xft:Liberation Mono:pixelsize=12
-URxvt*boldFont: xft:Liberation Mono:pixelsize=12:bold
+! Terminal font. For Ubuntu this requires the xfonts-terminus package.
+URxvt*font: xft:Terminus:pixelsize=12
+URxvt*boldFont: xft:Terminus:pixelsize=12:bold
 
 ! Enable a scroll bar.
 URxvt*scrollBar: true
