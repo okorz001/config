@@ -52,8 +52,10 @@ $hr
 # Disk Space
 / $alignr${fs_used /}/${fs_size /}
 ${fs_bar /}
+${if_mounted /home}\
 /home $alignr${fs_used /home}/${fs_size /home}
 ${fs_bar /home}
+${endif}\
 $hr
 # Networking
 ${if_up wlan0}\
