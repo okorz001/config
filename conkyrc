@@ -56,16 +56,16 @@ ${fs_bar /}
 ${fs_bar /home}
 $hr
 # Networking
-${if_up eth0}\
-${downspeedgraph eth0 24,112} ${upspeedgraph eth0 24,112}
-Interface: ${alignr}eth0
-Address: $alignr${addr eth0}
-${else}\
 ${if_up wlan0}\
 ${downspeedgraph wlan0 24,112} ${upspeedgraph wlan0 24,112}
 Interface: ${alignr}wlan0
 ESSID: $alignr${wireless_essid wlan0}
 Address: $alignr${addr wlan0}
+${else}\
+${if_up eth0}\
+${downspeedgraph eth0 24,112} ${upspeedgraph eth0 24,112}
+Interface: ${alignr}eth0
+Address: $alignr${addr eth0}
 ${else}\
 No Network Detected
 ${endif}\
