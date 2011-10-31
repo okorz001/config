@@ -57,7 +57,7 @@ if [[ -x /usr/bin/tput ]] && tput setaf 1 &>/dev/null; then
 fi
 
 # Set a (potentially) colorful prompt.
-PS1="${green}\u@\h${none}:${blue}\w${none}\$ "
+PS1="${green}\u@\h${none}:${blue}\w${none}\n\\\$ "
 
 # Undefine ANSI color codes.
 unset green
