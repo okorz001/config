@@ -4,6 +4,9 @@
 # Abort if this isn't an interactive shell.
 [[ -z "$PS1" ]] && return
 
+# Use vi key bindings.
+set -o vi
+
 # Get rid of that stupid command not found handler.
 unset -f command_not_found_handle
 

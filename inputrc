@@ -1,0 +1,54 @@
+# ~/.inputrc
+#  vim:ft=readline:
+
+# Use vi key bindings.
+# I don't fully understand the difference between these two options.
+set editing-mode vi
+set keymap vi
+
+# What to insert when 'insert-comment' is executed.
+set comment-begin #
+
+# Use visual bell, i.e. screen flash.
+set bell-style visible
+
+# Enable line wrapping.
+set horizontal-scroll-mode off
+
+# Print strip 8-bit characters.
+set input-meta on
+set output-meta on
+
+# ... but don't use 8-bit characters.
+# If this is off, the Alt (meta) key won't work as expected.
+set convert-meta on
+
+# Completion is the best thing about readline.
+set disable-completion off
+
+# Show me why it's ambiguous.
+set show-all-if-ambiguous on
+
+# If there's more than this many options, ask me if I really want to see them.
+set completion-query-items 10
+
+# Use a pager if there's a lot of completions.
+set page-completions on
+
+# Ignore case differences.
+set completion-ignore-case on
+
+# Ignore '-' and '_' differences.
+set completion-map-case on
+
+# Expand tilde in word completion.
+set expand-tilde on
+
+# Readline can automatically prepand '.' to find hidden files. Just say no.
+set match-hidden-files off
+
+# If a directory name is completed, append a '/'.
+set mark-directories on
+
+# Symlinks can be directories too.
+set mark-symlinked-directories on
