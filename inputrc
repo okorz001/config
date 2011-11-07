@@ -9,8 +9,8 @@ set keymap vi
 # What to insert when 'insert-comment' is executed.
 set comment-begin #
 
-# Use visual bell, i.e. screen flash.
-set bell-style visible
+# Visual bell lags some programs, so don't use a bell.
+set bell-style none
 
 # Enable line wrapping.
 set horizontal-scroll-mode off
