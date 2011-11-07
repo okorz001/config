@@ -4,6 +4,9 @@
 # Any hidden files that need to be tracked will have to be explicitly negated.
 .*
 
+# Except git's hidden fies.
+!.git*
+
 # Git merge backups.
 *.orig
 
