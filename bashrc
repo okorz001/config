@@ -56,6 +56,11 @@ if [[ -x /usr/bin/tput ]] && tput setaf 1 &>/dev/null; then
     # Colorize the grep family.
     export GREP_OPTIONS="--color=auto"
 
+	# Use colordiff if available
+	if which colordiff &>/dev/null; then
+		alias diff="colordiff"
+	fi
+
     # Define some ANSI color codes.
     green='\[\e[01;32m\]'
     blue='\[\e[01;34m\]'

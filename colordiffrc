@@ -1,0 +1,17 @@
+# ~/.colordiffrc
+# vim:ft=conf:
+
+# Suppress colordiff about info.
+banner=no
+
+# Don't output color when redirected to a file.
+color_patches=no
+
+# Mimic the git diff scheme.
+plain=none
+oldtext=darkred
+newtext=darkgreen
+diffstuff=darkcyan
+
+# I don't know what this is because I am not subjected to CVS!
+cvsstuff=darkyellow
