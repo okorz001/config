@@ -4,6 +4,9 @@
 # Abort if this isn't an interactive shell.
 [[ -z "$PS1" ]] && return
 
+# Default to user-writeable only.
+umask 022
+
 # Use vi key bindings.
 set -o vi
 
