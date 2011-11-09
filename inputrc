@@ -2,9 +2,7 @@
 #  vim:ft=readline:
 
 # Use vi key bindings.
-# I don't fully understand the difference between these two options.
 set editing-mode vi
-set keymap vi
 
 # What to insert when 'insert-comment' is executed.
 set comment-begin #
@@ -23,14 +21,14 @@ set output-meta on
 # If this is off, the Alt (meta) key won't work as expected.
 set convert-meta on
 
-# Completion is the best thing about readline.
+# Echo ^C.
+set echo-control-characters on
+
+# Always enable completion.
 set disable-completion off
 
-# Show me why it's ambiguous.
-set show-all-if-ambiguous on
-
 # If there's more than this many options, ask me if I really want to see them.
-set completion-query-items 10
+set completion-query-items 25
 
 # Use a pager if there's a lot of completions.
 set page-completions on
@@ -44,7 +42,7 @@ set completion-map-case on
 # Expand tilde in word completion.
 set expand-tilde on
 
-# Readline can automatically prepand '.' to find hidden files. Just say no.
+# Don't match hidden files unless a leading dot with explicitly specified.
 set match-hidden-files off
 
 # If a directory name is completed, append a '/'.
@@ -52,3 +50,66 @@ set mark-directories on
 
 # Symlinks can be directories too.
 set mark-symlinked-directories on
+
+# Show matching parentheses.
+set blink-matching-paren on
+
+# Define vi key bindings. Most of these are already defined by readline/bash,
+# but so far there has been no observable disadvantage to being explicit.
+# Many of these options are completely undocumented! See readline source code.
+$if mode=vi
+    # The following bindings are for command mode only.
+    set keymap vi-command
+
+    # List all commands and bindings. Sort of like the ":help" feature?
+    ":h\C-m": dump-functions
+
+    # Change to insert mode.
+    "i": vi-insertion-mode
+    "I": vi-insert-beg
+    "a": vi-append-mode
+    "A": vi-append-eol
+
+    # For completeness sake. Arrow keys are probably more practical.
+    "h": backward-char
+    "j": next-history
+    "k": previous-history
+    "l": forward-char
+
+    # Start and end of line.
+    "^": beginning-of-line
+    "$": end-of-line
+
+    # Words are [A-Za-z0-9]. No underscore!
+    "w": forward-word
+    "b": backward-word
+
+    $if Bash
+        # Shell words are anything that isn't a shell meta-character.
+        "W": shell-forward-word
+        "B": shell-backward-word
+    $else
+        # Big words seems to be anything except whitespace.
+        "W": vi-forward-bigword
+        "B": vi-backward-bigword
+    $endif
+
+    # These are backwards from vi, but it is much more useful this way.
+    "/": reverse-search-history
+    "?": forward-search-history
+
+    # Undo and redo. Not sure what is and isn't "undo-able".
+    "u": undo
+    "U": revert-line
+    "\C-r": vi-redo
+
+    # Toggle case!
+    "~": vi-change-case
+
+    # The following bindings are for insert mode only.
+    set keymap vi-insert
+
+    # Cycle through possible completions.
+    # Because of show-all-if-ambiguous, the first tab will show all options.
+    "\t": menu-complete
+$endif
