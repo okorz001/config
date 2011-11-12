@@ -43,5 +43,5 @@ st = status
 # Show the last commit.
 tip = log -n 1
 
-# Show commit titles and hashes only.
-log1 = log --pretty=oneline
+# An enhanced version of --pretty=oneline.
+log1 = log --graph --pretty=format:'%C(yellow)%h%C(green)%d%Creset %s'
