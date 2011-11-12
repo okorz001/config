@@ -4,14 +4,19 @@
 # Abort if this isn't an interactive shell.
 [[ -z "$PS1" ]] && return
 
-# Default to user-writeable only.
-umask 022
+# Turn on completion unless we are in strict POSIX mode.
+if [[ -r /etc/bash_completion ]] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+
+# Get rid of that stupid command not found handler.
+unset -f command_not_found_handle
 
 # Use vi key bindings.
 set -o vi
 
-# Get rid of that stupid command not found handler.
-unset -f command_not_found_handle
+# Default to user-writeable only.
+umask 022
 
 # Check if the window size has been adjusted.
 shopt -s checkwinsize
@@ -61,19 +66,29 @@ if [[ -x /usr/bin/tput ]] && tput setaf 1 &>/dev/null; then
 		alias diff="colordiff"
 	fi
 
-    # Define some ANSI color codes.
-    green='\[\e[01;32m\]'
-    blue='\[\e[01;34m\]'
-    none='\[\e[00m\]'
+    # Define some ANSI color codes. Note these are all bold/bright.
+    black='\[\e[1;30m\]'
+    red='\[\e[1;31m\]'
+    green='\[\e[1;32m\]'
+    yellow='\[\e[1;33m\]'
+    blue='\[\e[1;34m\]'
+    purple='\[\e[1;35m\]'
+    cyan='\[\e[1;36m\]'
+    white='\[\e[1;37m\]'
+    none='\[\e[0m\]'
 fi
 
-# Set a (potentially) colorful prompt.
-PS1="${green}\u@\h${none}:${blue}\w${none}\n\\\$ "
+# The bash completion script for git contains a PS1 helper function.
+if type -t __git_ps1 &>/dev/null; then
+	git_branch="\$(__git_ps1 ' [%s]')"
+fi
 
-# Undefine ANSI color codes.
-unset green
-unset blue
-unset none
+# Set a cool prompt.
+PS1="$green\u@\h$white:$blue\w$purple$git_branch$none\n\\\$ "
+PS2="> "
+
+# Undefine temporary variables used for prompt construction.
+unset -v black red green yellow blue purple cyan white none git_branch
 
 case "$TERM" in
 ?term*|rxvt*)
@@ -86,11 +101,6 @@ screen*)
     PROMPT_COMMAND="$PROMPT_COMMAND; echo -ne '\033k\033\\'"
     ;;
 esac
-
-# Turn on completion unless we are in strict POSIX mode.
-if [[ -r /etc/bash_completion ]] && ! shopt -oq posix; then
-    . /etc/bash_completion
-fi
 
 # Tell me where my files went.
 alias cp="cp -v"
