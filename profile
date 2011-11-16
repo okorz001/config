@@ -19,6 +19,13 @@ if which ccache >/dev/null 2>/dev/null; then
     export PATH="/usr/lib/ccache:$PATH"
 fi
 
+# Set the locale. Other LC_xxx variables can be infered from this.
+export LANG="en_US.UTF-8"
+
+# Use simple ASCII sorting. This puts '.' before [0-9] then [A-Z] then [a-z].
+# This could screw up things depending on en_US.UTF-8 sort (where A = a).
+export LC_COLLATE="C"
+
 # Use vim for text editing. Fallback to vi if we're on some sad POS.
 if which vim >/dev/null 2>/dev/null; then
 	export EDITOR="vim"
