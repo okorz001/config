@@ -2,49 +2,60 @@
 # vim:ft=cfg:
 
 [user]
-# User name for commits.
-name = Oscar Korz
+    # User name for commits.
+    name = Oscar Korz
 
-# Email for commits.
-email = okorz001@gmail.com
+    # Email for commits.
+    email = okorz001@gmail.com
 
 [github]
-# Github account name.
-user = okorz001
+    # Github account name.
+    user = okorz001
 
 [core]
-# Editor for commit messages.
-editor = vim
+    # Editor for commit messages.
+    editor = vim
 
-# Pager for multi-screen output.
-pager = less -FSRXx4
+    # Pager for multi-screen output.
+    pager = less
 
-# A file of exclude patterns to apply to all repos.
-excludesfile = ~/.gitignore
+    # A file of exclude patterns to apply to all repos.
+    excludesfile = ~/.gitignore
+
+[push]
+    # If no arguments given, only push the current branch (not all!).
+    default = current
 
 [merge]
-# Create local, remote and original.
-conflictstyle = diff3
+    # Create local, remote and original.
+    conflictstyle = diff3
 
-# Use vimdiff to merge in a terminal.
-tool = vimdiff
+    # Use vimdiff to merge in a terminal.
+    tool = vimdiff
 
 [color]
-# Colorize all output if the terminal supports it.
-ui = auto
+    # Colorize all output if the terminal supports it.
+    ui = auto
 
 [alias]
-# Two-letter abbreviations because I'm lazy.
-br = branch
-ci = commit
-co = checkout
-st = status
+    # Two-letter abbreviations because I'm lazy.
+    br = branch
+    ci = commit
+    co = checkout
+    st = status
 
-# Show the last commit.
-tip = log -n 1
+    # pi is short for pick. cp is a bad idea... :)
+    pi = cherry-pick
 
-# An enhanced version of --pretty=oneline. Good for cherry-picking/rebasing.
-log1 = log --all --graph --pretty=format:'%C(yellow)%h%C(green)%d%Creset %s'
+    # Show the last commit.
+    tip = log -n 1
 
-# All the juicy details.
-logfull = log --graph --pretty=format:'refs   %C(green)%d%ncommit  %C(yellow)%H%nparents %P%n%nAuthor:     %aN <%aE>%nAuthorDate: %ad%nCommit:     %cN <%cE>%nCommitDate: %cd%n%n%C(white bold)%s%n %n%-b'
+    # An enhanced version of --pretty=oneline. Good for cherry-picking/rebasing.
+    log1 = log --all --graph --pretty=format:'%C(yellow)%h%C(green)%d%Creset %s'
+
+    # All the juicy details.
+    logfull = log --graph --pretty=format:'refs   %C(green)%d%ncommit  %C(yellow)%H%nparents %P%n%nAuthor:     %aN <%aE>%nAuthorDate: %ad%nCommit:     %cN <%cE>%nCommitDate: %cd%n%n%C(white bold)%s%n %n%-b'
+
+    # Git has mv, so why not cp?
+    # If $# > 2, this could stage other local changes...
+    cp = "!sh -c 'cp $@ && git add ${@:$#}' -"
