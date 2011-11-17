@@ -80,12 +80,12 @@ fi
 
 # The bash completion script for git contains a PS1 helper function.
 if type -t __git_ps1 &>/dev/null; then
-	git_branch="\$(__git_ps1 ' [%s]')"
+	git_branch='$(__git_ps1 " [%s]")'
 fi
 
 # Set a cool prompt.
-PS1="$green\u@\h$white:$blue\w$purple$git_branch$none\n\\\$ "
-PS2="> "
+PS1="$green\\u@\\h$white:$blue\\w$purple$git_branch\n$white\\\$$none "
+PS2="$white>$none "
 
 # Undefine temporary variables used for prompt construction.
 unset -v black red green yellow blue purple cyan white none git_branch
@@ -93,12 +93,12 @@ unset -v black red green yellow blue purple cyan white none git_branch
 case "$TERM" in
 ?term*|rxvt*)
     # If we're in a GUI terminal, set a nice window title.
-    PS1="\[\e]0;\u@\h: \w\a\]$PS1"
+    PS1='\[\e]0;\u@\h: \w\a\]'"$PS1"
     ;;
 screen*)
     # If we're in screen, support automatic tab titles.
     # I really want to move this PS1, but that screws up checkwinsize.
-    PROMPT_COMMAND="$PROMPT_COMMAND; echo -ne '\033k\033\\'"
+    PROMPT_COMMAND="$PROMPT_COMMAND; echo -ne '\ek\e\\'"
     ;;
 esac
 
