@@ -1,6 +1,9 @@
 # ~/.bashrc
 # vim:ft=sh:
 
+# Unfortunately, the export in ~/.profile seems to be overwritten by X11/GNOME.
+export LANG="en_US.UTF-8"
+
 # Abort if this isn't an interactive shell.
 [[ -z "$PS1" ]] && return
 
