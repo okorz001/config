@@ -1,44 +1,42 @@
-! ~/.Xdefaults
+! ~/.Xresources
 ! vim:ft=xdefaults:
 
-! Shared settings ------------------------------------------------------------!
+! Global settings ------------------------------------------------------------!
 
-! Text color.
+! Gray on black. (7 on 0)
 *foreground: #AAAAAA
-
-! Background color.
 *background: #000000
 
 ! Black.
 *color0: #000000
-*color8: #AAAAAA
+*color8: #555555
 
 ! Red.
-*color1: #CD0000
-*color9: #FF0000
+*color1: #AA0000
+*color9: #FF5555
 
 ! Green.
-*color2: #00CD00
-*color10: #00FF00
+*color2: #00AA00
+*color10: #55FF55
 
 ! Yellow.
-*color3: #CDCD00
-*color11: #FFFF00
+*color3: #AA5500
+*color11: #FFFF55
 
 ! Blue.
-*color4: #0000CD
-*color12: #0000FF
+*color4: #0000AA
+*color12: #5555FF
 
 ! Magenta.
-*color5: #CD00CD
-*color13: #FF00FF
+*color5: #AA00AA
+*color13: #FF55FF
 
 ! Cyan.
-*color6: #00CDCD
-*color14: #00FFFF
+*color6: #00AAAA
+*color14: #55FFFF
 
 ! White.
-*color7: #FAEBD7
+*color7: #AAAAAA
 *color15: #FFFFFF
 
 ! RXVT Unicode ---------------------------------------------------------------!
