@@ -75,7 +75,7 @@ if [[ -x /usr/bin/tput ]] && tput setaf 1 &>/dev/null; then
     green='\[\e[1;32m\]'
     yellow='\[\e[1;33m\]'
     blue='\[\e[1;34m\]'
-    purple='\[\e[1;35m\]'
+    pink='\[\e[1;35m\]'
     cyan='\[\e[1;36m\]'
     white='\[\e[1;37m\]'
     none='\[\e[0m\]'
@@ -87,11 +87,11 @@ if type -t __git_ps1 &>/dev/null; then
 fi
 
 # Set a cool prompt.
-PS1="$green\\u@\\h$white:$blue\\w$purple$git_branch\n$white\\\$$none "
+PS1="$green\\u@\\h$white:$blue\\w$yellow$git_branch\n$white\\\$$none "
 PS2="$white>$none "
 
 # Undefine temporary variables used for prompt construction.
-unset -v black red green yellow blue purple cyan white none git_branch
+unset -v black red green yellow blue pink cyan white none git_branch
 
 case "$TERM" in
 ?term*|rxvt*)
