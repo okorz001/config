@@ -109,7 +109,6 @@ $if mode=vi
     # The following bindings are for insert mode only.
     set keymap vi-insert
 
-    # Cycle through possible completions.
-    # Because of show-all-if-ambiguous, the first tab will show all options.
-    "\t": menu-complete
+	# Tab completion.
+    "\t": complete
 $endif
