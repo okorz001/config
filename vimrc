@@ -106,23 +106,3 @@ set writebackup
 
 " Look for a tags file all the way up the filesystem.
 set tags=.tags;/,tags;/,TAGS;/
-
-" Move between splits.
-map <C-J> <C-W>j
-map <C-K> <C-W>k
-map <C-H> <C-W>h
-map <C-L> <C-W>l
-
-" Move between splits in insert mode.
-map! <C-J> <ESC><C-J>
-map! <C-K> <ESC><C-K>
-map! <C-H> <ESC><C-H>
-map! <C-L> <ESC><C-L>
-
-" Move between buffers.
-map <C-N> :bn!<RETURN>
-map <C-P> :bN!<RETURN>
-
-" Move between buffers in insert mode.
-map! <C-N> <ESC><C-N>
-map! <C-P> <ESC><C-P>
