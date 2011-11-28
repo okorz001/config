@@ -64,6 +64,11 @@ if [[ -x /usr/bin/tput ]] && tput setaf 1 &>/dev/null; then
     # Colorize the grep family.
     export GREP_OPTIONS="$GREP_OPTIONS --color=auto"
 
+	# Colorize man pages (in less) like the linux console.
+	# This is undocumented. A better solution would use termcap directly.
+	export LESS_TERMCAP_us=$'\e[36m'
+	export LESS_TERMCAP_ue=$'\e[0m'
+
 	# Use colordiff if available
 	if which colordiff &>/dev/null; then
 		alias diff="colordiff"
