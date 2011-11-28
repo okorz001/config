@@ -27,6 +27,10 @@ set echo-control-characters on
 # Always enable completion.
 set disable-completion off
 
+# If enabled, readline will not ring the bell if the completion is ambiguous.
+# Instead, readline will immediately display all possible completions.
+set show-all-if-ambiguous off
+
 # If there's more than this many options, ask me if I really want to see them.
 set completion-query-items 25
 
