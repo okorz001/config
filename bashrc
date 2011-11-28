@@ -62,7 +62,7 @@ if [[ -x /usr/bin/tput ]] && tput setaf 1 &>/dev/null; then
     esac
 
     # Colorize the grep family.
-    export GREP_OPTIONS="--color=auto"
+    export GREP_OPTIONS="$GREP_OPTIONS --color=auto"
 
 	# Use colordiff if available
 	if which colordiff &>/dev/null; then
