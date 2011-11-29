@@ -47,6 +47,8 @@
     # pi is short for pick. cp is a bad idea... :)
     pi = cherry-pick
 
+    fa = fetch --all
+
     # Show the last commit.
     tip = log -n 1
 
