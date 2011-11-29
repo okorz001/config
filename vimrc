@@ -19,6 +19,9 @@ filetype indent on
 " Enable syntax coloring.
 syntax enable
 
+" Emulate readline (bash) completion.
+set wildmode=longest,list
+
 " Move into the file's directory after it's opened.
 " Mac OS X 10.6 vim doesn't support this.
 try
