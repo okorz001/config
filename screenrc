@@ -32,7 +32,7 @@ hardstatus off
 hardstatus ignore "%?%0`%:unknown%? - screen"
 
 # List all tabs and the current time at the bottom of the display.
-caption always "%{=b kw}%-Lw%{kR}%n%f %t%{-}%+Lw %=%m/%d/%y %C %A"
+caption always "%{=b kw}%-Lw%45L>%{kR}%n%f %t%{-}%+Lw%-015= %m/%d/%y %c"
 
 # Use vi-like bindings for moving between splits.
 bind j focus down
