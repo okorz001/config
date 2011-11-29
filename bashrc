@@ -64,15 +64,15 @@ if [[ -x /usr/bin/tput ]] && tput setaf 1 &>/dev/null; then
     # Colorize the grep family.
     export GREP_OPTIONS="$GREP_OPTIONS --color=auto"
 
-	# Colorize man pages (in less) like the linux console.
-	# This is undocumented. A better solution would use termcap directly.
-	export LESS_TERMCAP_us=$'\e[36m'
-	export LESS_TERMCAP_ue=$'\e[0m'
+    # Colorize man pages (in less) like the linux console.
+    # This is undocumented. A better solution would use termcap directly.
+    export LESS_TERMCAP_us=$'\e[36m'
+    export LESS_TERMCAP_ue=$'\e[0m'
 
-	# Use colordiff if available
-	if which colordiff &>/dev/null; then
-		alias diff="colordiff"
-	fi
+    # Use colordiff if available
+    if which colordiff &>/dev/null; then
+        alias diff="colordiff"
+    fi
 
     # Define some ANSI color codes. Note these are all bold/bright.
     black='\[\e[1;30m\]'
@@ -88,7 +88,7 @@ fi
 
 # The bash completion script for git contains a PS1 helper function.
 if type -t __git_ps1 &>/dev/null; then
-	git_branch='$(__git_ps1 " [%s]")'
+    git_branch='$(__git_ps1 " [%s]")'
 fi
 
 # Set a cool prompt.

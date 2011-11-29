@@ -28,20 +28,20 @@ export LC_COLLATE="C"
 
 # Use vim for text editing. Fallback to vi if we're on some sad POS.
 if which vim >/dev/null 2>/dev/null; then
-	export EDITOR="vim"
+    export EDITOR="vim"
 else
-	export EDITOR="vi"
+    export EDITOR="vi"
 fi
 
 # Use less for paging.
 export PAGER="less"
 
 # Set default flags for less.
-#	-F : quit if one screen
-#	-S : disable line wrapping
-#	-R : print ANSI color escape sequences
-#	-X : disable termcap init (don't clear screen on close)
-#	-x : tab stop width
+#    -F : quit if one screen
+#    -S : disable line wrapping
+#    -R : print ANSI color escape sequences
+#    -X : disable termcap init (don't clear screen on close)
+#    -x : tab stop width
 export LESS="-FSRXx4"
 
 # Use the path to find a less preprocessor.
@@ -53,7 +53,7 @@ elif which lesspipe.sh >/dev/null 2>/dev/null; then
 fi
 
 # Set default flags for grep.
-#	-I : ignore binary files
+#    -I : ignore binary files
 export GREP_OPTIONS="-I"
 
 # bash is stupid, so explicitly source bashrc for interactive login shells.

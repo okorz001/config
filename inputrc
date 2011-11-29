@@ -113,6 +113,6 @@ $if mode=vi
     # The following bindings are for insert mode only.
     set keymap vi-insert
 
-	# Tab completion.
+    # Tab completion.
     "\t": complete
 $endif
