@@ -7,6 +7,12 @@ set nocompatible
 " Return to command mode if two j's are typed.
 map! jj <ESC>
 
+" Learn to love the hjkl... (or use better movements instead!).
+map <UP> <NOP>
+map <DOWN> <NOP>
+map <LEFT> <NOP>
+map <RIGHT> <NOP>
+
 " Detect filetypes.
 filetype on
 
