@@ -115,3 +115,7 @@ set writebackup
 
 " Look for a tags file all the way up the filesystem.
 set tags=.tags;/,tags;/,TAGS;/
+
+" Highlight lines that are longer than 80 characters.
+highlight LineWrap ctermbg=red ctermfg=white guibg=red guifg=white
+match LineWrap /\%81v.\+/
