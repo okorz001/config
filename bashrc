@@ -63,6 +63,7 @@ if [[ -x /usr/bin/tput ]] && tput setaf 1 &>/dev/null; then
 
     # Colorize the grep family.
     export GREP_OPTIONS="$GREP_OPTIONS --color=auto"
+    export GREP_COLORS="sl=:cx=:mt=01;31:fn=01;36:ln=01;35:bn=01;35:se=01;37"
 
     # Colorize man pages (in less) like the linux console.
     # This is undocumented. A better solution would use termcap directly.
