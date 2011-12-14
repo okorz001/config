@@ -126,6 +126,9 @@ set tags=.tags;/,tags;/,TAGS;/
 highlight LineWrap ctermbg=red ctermfg=white guibg=red guifg=white
 match LineWrap /\%81v.\+/
 
+" Make Y act like C, D (i.e. til end of line).
+nmap Y y$
+
 " Set leader sequence. Leader is used for the macros below.
 let mapleader = " "
 
