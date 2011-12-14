@@ -91,9 +91,6 @@ set foldignore="#"
 " Auto-fold folds that are at least this deep. 100 is effectively "never".
 set foldlevel=100
 
-" Toggle folds with spacebar.
-nmap <SPACE> za
-
 " Search for the expression as it's being typed.
 set incsearch
 
@@ -128,3 +125,18 @@ set tags=.tags;/,tags;/,TAGS;/
 " Highlight lines that are longer than 80 characters.
 highlight LineWrap ctermbg=red ctermfg=white guibg=red guifg=white
 match LineWrap /\%81v.\+/
+
+" Set leader sequence. Leader is used for the macros below.
+let mapleader = " "
+
+" Macro to remove trailing whitespace from entire file.
+nmap <leader>ws :%s/[ \t]\+$//<CR>
+
+" Macro to remove trailing whitespace from visual block.
+vmap <leader>ws :s/[ \t]\+$//<CR>
+
+" Macro to toggle paste mode.
+nmap <leader>pa :set paste!<CR>
+
+" Macro to clear the search register.
+nmap <leader>cs :let @/ = ""<CR>
