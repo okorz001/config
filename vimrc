@@ -100,6 +100,12 @@ set incsearch
 " Highlight matches.
 set hlsearch
 
+" Case insensitive search.
+set ignorecase
+
+" ...unless a capital letter is present!
+set smartcase
+
 " Center the matched line.
 nmap n nzz
 nmap N Nzz
