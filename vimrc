@@ -8,10 +8,10 @@ set nocompatible
 imap jj <ESC>
 
 " Learn to love the hjkl... (or use better movements instead!).
-map <UP> <NOP>
-map <DOWN> <NOP>
-map <LEFT> <NOP>
-map <RIGHT> <NOP>
+nmap <UP> <NOP>
+nmap <DOWN> <NOP>
+nmap <LEFT> <NOP>
+nmap <RIGHT> <NOP>
 
 " Detect filetypes.
 filetype on
