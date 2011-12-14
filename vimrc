@@ -5,7 +5,7 @@
 set nocompatible
 
 " Return to command mode if two j's are typed.
-map! jj <ESC>
+imap jj <ESC>
 
 " Learn to love the hjkl... (or use better movements instead!).
 map <UP> <NOP>
