@@ -37,7 +37,10 @@ catch
 endtry
 
 " Use bright colors. (I use dark terminals.)
-set bg=dark
+set background=dark
+
+" Always keep 3 lines of context above or below the current line.
+set scrolloff=3
 
 " Show pending commands at the bottom of the terminal.
 set showcmd
@@ -48,12 +51,15 @@ set showmatch
 " Indicate if we are not in command mode.
 set showmode
 
+" Remember more commands and patterns.
+set history=256
+
 " Always show the status bar.
 set laststatus=2
 
 " Status bar format string.
 " Show the full path, buffer flags, filetype and cursor position.
-set statusline=%<%F%([%R%H%W%M]%)%=\ \ %y[%l,%v]
+set statusline=%<%F%([%R%H%W%M]%)%=\ %y[%l,%v][%p%%]
 
 " Insert spaces instead of a tab character when <TAB> is pressed!
 " A tab character can be inserted with <C-V><TAB>
@@ -68,11 +74,8 @@ set tabstop=4
 " Number of spaces to indent/dedent when using <, >.
 set shiftwidth=4
 
-" Guess indentation based on previous line.
-set autoindent
-
 " Guess indentation based off of language syntax.
-set smartindent
+set cindent
 
 " Enable text folding.
 set foldenable
