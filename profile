@@ -54,8 +54,8 @@ fi
 
 # Set default flags for grep.
 #    -I : ignore binary files
-#    --exclude-dir=.* : do not recurse into hidden directories
-export GREP_OPTIONS="-I --exclude-dir=.*"
+#    --exclude-dir='\.*' : do not recurse into hidden directories
+export GREP_OPTIONS="-I --exclude-dir='\\.*'"
 
 # bash is stupid, so explicitly source bashrc for interactive login shells.
 [ -n "$BASH" -a -n "$PS1" ] && . ~/.bashrc
