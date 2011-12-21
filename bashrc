@@ -107,7 +107,7 @@ case "$TERM" in
 screen*)
     # If we're in screen, support automatic tab titles.
     # I really want to move this PS1, but that screws up checkwinsize.
-    PROMPT_COMMAND="$PROMPT_COMMAND; echo -ne '\ek\e\\'"
+    PROMPT_COMMAND="$PROMPT_COMMAND; echo -n \$'\ek\e\\\\'"
     ;;
 esac
 
