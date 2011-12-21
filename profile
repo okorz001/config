@@ -54,8 +54,12 @@ fi
 
 # Set default flags for grep.
 #    -I : ignore binary files
-#    --exclude-dir='\.*' : do not recurse into hidden directories
-export GREP_OPTIONS="-I --exclude-dir='\\.*'"
+export GREP_OPTIONS="-I"
+
+if [ `uname` != "Darwin" ]; then
+    #    --exclude-dir='\.*' : do not recurse into hidden directories
+    export GREP_OPTIONS="$GREP_OPTIONS --exclude-dir='\\.*'"
+fi
 
 # bash is stupid, so explicitly source bashrc for interactive login shells.
 [ -n "$BASH" -a -n "$PS1" ] && . ~/.bashrc
