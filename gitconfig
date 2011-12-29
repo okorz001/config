@@ -48,6 +48,7 @@
     pi = cherry-pick
 
     fa = fetch --all
+    fas = submodule foreach 'git fa'
 
     # Show the last commit.
     tip = log -n 1
