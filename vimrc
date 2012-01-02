@@ -29,11 +29,12 @@ syntax enable
 set wildmode=longest,list
 
 " Move into the file's directory after it's opened.
-" Mac OS X 10.6 vim doesn't support this.
 try
+    " VIM 7.3 has support for this built-in.
     set autochdir
 catch
-    " TODO: Replicate this feature with an autocmd.
+    " Older versions (like on OS X) need autocmd magic.
+    autocmd BufEnter * execute 'chdir ' . escape(expand('%:p:h'), ' ')
 endtry
 
 " Use bright colors. (I use dark terminals.)
