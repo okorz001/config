@@ -108,15 +108,19 @@ set smartcase
 nmap n nzz
 nmap N Nzz
 
-" Move swap files out of the current directory.
-silent !mkdir -p ~/.vim/tmp &>/dev/null
-set directory=~/.vim/tmp
+" Move swap files out of the current directory, creating the swap directory
+" if necessary.
+let s:swapdir=$HOME . "/.vim/tmp"
+if !isdirectory(s:swapdir)
+    if exists("*mkdir")
+        call mkdir(s:swapdir, "p")
+    else
+        silent execute "!mkdir -p " . s:swapdir . " &>/dev/null"
+    endif
+endif
+let &directory=s:swapdir
 
-" Move backups out of the current directory.
-silent !mkdir -p ~/.vim/backup &>/dev/null
-set backupdir=~/.vim/backup
-
-" Honestly, I'm a little confused about these two...
+" Create a backup before writing, then delete it if the write succeeds.
 set nobackup
 set writebackup
 
@@ -131,7 +135,7 @@ match LineWrap /\%81v.\+/
 nmap Y y$
 
 " Set leader sequence. Leader is used for the macros below.
-let mapleader = " "
+let mapleader=" "
 
 " Macro to remove trailing whitespace from entire file.
 nmap <leader>ws :%s/[ \t]\+$//<CR>
@@ -143,7 +147,7 @@ vmap <leader>ws :s/[ \t]\+$//<CR>
 nmap <leader>pa :set paste!<CR>
 
 " Macro to clear the search register.
-nmap <leader>cs :let @/ = ""<CR>
+nmap <leader>cs :let @/=""<CR>
 
 " Macro for manipulating the system register (X11 clipboard).
 " This is designed to be used with an operator, e.g. "<leader>xyy"
