@@ -144,3 +144,7 @@ nmap <leader>pa :set paste!<CR>
 
 " Macro to clear the search register.
 nmap <leader>cs :let @/ = ""<CR>
+
+" Macro for manipulating the system register (X11 clipboard).
+" This is designed to be used with an operator, e.g. "<leader>xyy"
+map <leader>x "+
