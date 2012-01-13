@@ -49,7 +49,7 @@
     pi = cherry-pick
 
     fa = fetch --all
-    fas = !git fa && git submodule foreach git fa
+    fas = fetch --all --recurse-submodules
 
     # A better version of --pretty=oneline. Good for cherry-picking/rebasing.
     l1 = log --all --graph --pretty=format:'%C(yellow)%h%C(green)%d%Creset %s'
