@@ -152,3 +152,6 @@ nmap <leader>cs :let @/=""<CR>
 " Macro for manipulating the system register (X11 clipboard).
 " This is designed to be used with an operator, e.g. "<leader>xyy"
 map <leader>x "+
+
+" Macro for setting this split buffer to 80 chars wide.
+map <leader>vr :vertical resize 80<CR>
