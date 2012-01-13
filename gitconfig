@@ -43,15 +43,13 @@
     ci = commit
     co = checkout
     st = status
+    sub = submodule
 
     # pi is short for pick. cp is a bad idea... :)
     pi = cherry-pick
 
     fa = fetch --all
     fas = !git fa && git submodule foreach git fa
-
-    # Show the last commit.
-    tip = log -n 1
 
     # A better version of --pretty=oneline. Good for cherry-picking/rebasing.
     l1 = log --all --graph --pretty=format:'%C(yellow)%h%C(green)%d%Creset %s'
