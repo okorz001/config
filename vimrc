@@ -155,3 +155,75 @@ map <leader>x "+
 
 " Macro for setting this split buffer to 80 chars wide.
 map <leader>vr :vertical resize 80<CR>
+
+" Try to detect what kind of repository this file is in.
+function! ScmDetect()
+    " Set a sensible default.
+    let b:scm_type=""
+
+    " Look upwards for any kind of repository directories.
+    let l:dir=getcwd() . "/"
+    while !empty(l:dir)
+        if isdirectory(l:dir . ".git")
+            let b:scm_type="git"
+            return
+        elseif isdirectory(l:dir . ".hg")
+            let b:scm_type="hg"
+            return
+        elseif isdirectory(l:dir . ".svn")
+            let b:scm_type="svn"
+            return
+        elseif isdirectory(l:dir . "CVS")
+            let b:scm_type="cvs"
+            return
+        endif
+
+        " Chop off the last directory.
+        let l:dir=strpart(l:dir, 0, match(l:dir, '[^/]\+/$'))
+    endwhile
+endfunction
+
+" Try to blame.
+function! ScmBlame()
+    if empty(b:scm_type)
+        echohl ErrorMsg
+        echo "ERROR: b:scm_type is not set."
+        echohl
+    elseif b:scm_type == "git"
+        execute "!git blame --date=short " . expand("%")
+    elseif b:scm_type == "hg"
+        execute "!hg blame --user --changeset --date --quiet " . expand("%")
+    elseif b:scm_type == "svn"
+        execute "!svn blame " . expand("%") . " | $PAGER"
+    else
+        echohl ErrorMsg
+        echo "ERROR: Can't blame for b:scm_type='" . b:scm_type . "'."
+        echohl
+    endif
+endfunction
+
+" Try to diff.
+function! ScmDiff()
+    if empty(b:scm_type)
+        echohl ErrorMsg
+        echo "ERROR: b:scm_type is not set."
+        echohl
+    elseif b:scm_type == "git"
+        execute "!git diff " . expand("%")
+    elseif b:scm_type == "hg"
+        execute "!hg diff " . expand("%")
+    elseif b:scm_type == "svn"
+        execute "!svn diff --extensions --show-c-function " . expand("%") . " | $PAGER"
+    else
+        echohl ErrorMsg
+        echo "ERROR: Can't diff for b:scm_type='" . b:scm_type . "'."
+        echohl
+    endif
+endfunction
+
+" Detect the repository type when we open the file.
+autocmd BufEnter * :call ScmDetect()
+
+" Map others repository functions to macros.
+map <leader>blame :call ScmBlame()<CR>
+map <leader>diff :call ScmDiff()<CR>
