@@ -192,9 +192,11 @@ function! ScmBlame()
     elseif b:scm_type == "git"
         execute "!git blame --date=short " . expand("%")
     elseif b:scm_type == "hg"
-        execute "!hg blame --user --changeset --date --quiet " . expand("%")
+        execute "!hg blame -ucdq " . expand("%")
     elseif b:scm_type == "svn"
         execute "!svn blame " . expand("%") . " | $PAGER"
+    elseif b:scm_type == "cvs"
+        execute "!cvs annotate " . expand("%") . " | $PAGER"
     else
         echohl ErrorMsg
         echo "ERROR: Can't blame for b:scm_type='" . b:scm_type . "'."
@@ -213,7 +215,9 @@ function! ScmDiff()
     elseif b:scm_type == "hg"
         execute "!hg diff " . expand("%")
     elseif b:scm_type == "svn"
-        execute "!svn diff --extensions --show-c-function " . expand("%") . " | $PAGER"
+        execute "!svn diff -x -p " . expand("%") . " | $PAGER"
+    elseif b:scm_type == "cvs"
+        execute "!cvs diff -u " . expand("%") . " | $PAGER"
     else
         echohl ErrorMsg
         echo "ERROR: Can't diff for b:scm_type='" . b:scm_type . "'."
