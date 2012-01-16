@@ -37,6 +37,24 @@
     # Colorize all output if the terminal supports it.
     ui = auto
 
+[color "branch"]
+    current = cyan bold
+    local = green
+    remote = red
+
+[color "decorate"]
+    head = cyan bold
+    branch = green
+    remoteBranch = red
+    tag = cyan
+    stash = yellow bold
+
+[color "status"]
+    added = green
+    changed = yellow
+    untracked = red
+    nobranch = white red bold
+
 [alias]
     # Two-letter abbreviations because I'm lazy.
     br = branch
@@ -51,11 +69,8 @@
     fa = fetch --all
     fas = fetch --all --recurse-submodules
 
-    # A better version of --pretty=oneline. Good for cherry-picking/rebasing.
-    l1 = log --all --graph --pretty=format:'%C(yellow)%h%C(green)%d%Creset %s'
-
-    # All the juicy details.
-    lf = log --graph --pretty=format:'refs   %C(green)%d%ncommit  %C(yellow)%H%nparents %P%n%nAuthor:     %aN <%aE>%nAuthorDate: %ad%nCommit:     %cN <%cE>%nCommitDate: %cd%n%n%C(white bold)%s%n %n%-b'
+    # Quick and dirty history graph. Good for cherry-picking/rebasing.
+    l1 = log --pretty=oneline --abbrev-commit --decorate --graph --all
 
     # Git has mv, so why not cp?
     # If $# > 2, this could stage other local changes...
