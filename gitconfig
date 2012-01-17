@@ -23,8 +23,9 @@
     excludesfile = ~/.gitignore
 
 [push]
-    # If no arguments given, only push the current branch (not all!).
-    default = current
+    # If no arguments given, abort.
+    # This prevents the accidental push of a private local branch.
+    default = nothing
 
 [merge]
     # Create local, remote and original.
