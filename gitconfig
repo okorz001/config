@@ -72,6 +72,9 @@
     # --tags fetchs tags that are otherwise unreachable by branches.
     sync = fetch --prune --tags --all
 
+    # Get the current SHA1 hash.
+    where = log --pretty=format:%H -1
+
     # Quick and dirty history graph. Good for cherry-picking/rebasing.
     l1 = log --pretty=oneline --abbrev-commit --decorate --graph --all
 
