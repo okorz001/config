@@ -119,6 +119,12 @@ alias mv="mv -v"
 alias ll="ls -lh"
 alias la="ll -A"
 
+# Convenient function for launching screen as a serial terminal.
+# This will set a nice descriptive tab title as well.
+screen-tty () {
+    screen -t "$1" "$1" "${2:-115200}"
+}
+
 # Do math with python.
 calc () {
     python -c "from math import *; print $@"
