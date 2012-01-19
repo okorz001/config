@@ -67,8 +67,10 @@
     # pi is short for pick. cp is a bad idea... :)
     pi = cherry-pick
 
-    fa = fetch --all
-    fas = fetch --all --recurse-submodules
+    # Sync our view of all remotes. We should have a perfect mirror now.
+    # --prune drops all remote branches that are now stale (have been deleted).
+    # --tags fetchs tags that are otherwise unreachable by branches.
+    sync = fetch --prune --tags --all
 
     # Quick and dirty history graph. Good for cherry-picking/rebasing.
     l1 = log --pretty=oneline --abbrev-commit --decorate --graph --all
