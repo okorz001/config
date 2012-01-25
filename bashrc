@@ -93,7 +93,7 @@ if type -t __git_ps1 &>/dev/null; then
 fi
 
 # Set a cool prompt.
-PS1="$green\\u@\\h$white:$blue\\w$yellow$git_branch\n$white\\\$$none "
+PS1="$green\\u@\\h$white:$blue\\w$cyan$git_branch\n$white\\\$$none "
 PS2="$white>$none "
 
 # Undefine temporary variables used for prompt construction.
