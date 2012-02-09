@@ -244,6 +244,9 @@ __scm_git_ident () {
 }
 
 __scm_svn_ident () {
-    # TODO: Although this is the easiest solution, it talks to the server.
-    echo "r$(svnversion)"
+    local r="$(svnversion 2>/dev/null)"
+    r="${r/[^0-9]*/}"
+    if [[ -n "$r" ]]; then
+        echo "r$r"
+    fi
 }
