@@ -51,10 +51,12 @@
     stash = yellow bold
 
 [color "status"]
+    branch = cyan bold
+    nobranch = white red bold
+    header =
     added = green
     changed = yellow
     untracked = red
-    nobranch = white red bold
 
 [alias]
     # Two-letter abbreviations because I'm lazy.
