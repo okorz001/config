@@ -58,6 +58,16 @@
     changed = yellow
     untracked = red
 
+[color "diff"]
+    commit = yellow
+    meta = white bold
+    frag = cyan
+    func =
+    old = red
+    new = green
+    whitespace = white red bold
+    plain =
+
 [alias]
     # Two-letter abbreviations because I'm lazy.
     br = branch

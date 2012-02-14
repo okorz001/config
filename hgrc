@@ -1,0 +1,79 @@
+# ~/.hgrc
+# vim:ft=cfg:
+
+# Mercurial throws a hissy-fit if the comments are idented.
+
+[ui]
+# Name and email for commits.
+username = Oscar Korz <okorz001@gmail.com>
+
+# Editor for commit messages.
+editor = vim
+
+[extensions]
+# Use a pager for multi-screen output.
+pager =
+
+# Colorize terminal output.
+color =
+
+# Add progress bars to commands.
+progress =
+
+# Support using other diff-like programs.
+extdiff =
+
+# Automatically convert LF <-> CRLF.
+eol =
+
+# Bookmarks are just like git's lightweight branches.
+# Note: This is a core feature in 1.8+
+bookmarks =
+
+# Support git's parent notation.
+parentrevspec =
+
+# Remove all untracked files.
+purge =
+
+# Commit history graph in the terminal.
+graphlog =
+
+[pager]
+# Use less as the pager.
+pager = less
+
+[color]
+# Detect if this is an ANSI or Windows terminal.
+mode = auto
+
+# Try to emulate git's status.
+# These are green because they will be committed. It's psuedo-staged.
+status.modified = green
+status.added = green
+status.removed = green
+
+# These are yellow because it won't be committed. It's psuedo-unstaged.
+status.deleted = yellow
+
+# Unknown files are red.
+status.unknown = red
+status.ignored = red
+
+# Try to emulate git's diff color scheme.
+diff.diffline = white bold
+diff.file_a = white bold
+diff.file_b = white bold
+diff.hunk = cyan
+diff.deleted = red
+diff.inserted = green
+diff.trailingwhitespace = bold red_background
+
+[extdiff]
+# Invoke meld with "hg meld".
+cmd.meld =
+
+[alias]
+# TODO: Colorize without hardcoding ANSI escapes
+# Try to recreate my git l1 alias.
+l1 = glog --template '\033[31m{rev}\033[0m \033[33m{node|short} \033[32m{branches} \033[36m{tags}\033[0m {desc|firstline}\n'
