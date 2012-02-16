@@ -88,7 +88,7 @@
     where = log --pretty=format:%H -1
 
     # Quick and dirty history graph. Good for cherry-picking/rebasing.
-    l1 = log --pretty=oneline --abbrev-commit --decorate --graph --all
+    l1 = log --pretty=oneline --abbrev-commit --decorate --graph
     lf = log --pretty=fuller --decorate --graph --stat
 
     # Git has mv, so why not cp?
