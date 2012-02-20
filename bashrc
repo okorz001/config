@@ -243,6 +243,30 @@ __scm_git_ident () {
     echo "$b$m"
 }
 
+# TODO: This invokes hg, and thus python, four times.
+# The best solution may be to parse the .hg directory ourselves.
+__scm_hg_ident () {
+    local b=""
+    # First, see if we're using a bookmark.
+    # We must seperate the assignment from the local builtin, because local
+    # will return zero even if hg identify fails.
+    b="$(hg identify -B 2>/dev/null)"
+    # Mercurial is dumb and prints usage to stdout, so we have to check the
+    # return code in case bookmarks aren't supported in this version.
+    if [[ $? -ne 0 || -z "$b" ]]; then
+        # Next, check if we've checked out a tag.
+        b="$(hg identify -t 2>/dev/null)"
+        if [[ -n "$b" ]]; then
+            b="tag: $b"
+        else
+            # Finally, just use the local revision and the abbreviated SHA1.
+            b="$(hg identify -n 2>/dev/null): $(hg identify -i 2>/dev/null)..."
+        fi
+    fi
+
+    echo "$b"
+}
+
 __scm_svn_ident () {
     local r="$(svnversion 2>/dev/null)"
     r="${r/[^0-9]*/}"
