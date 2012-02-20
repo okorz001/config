@@ -94,3 +94,6 @@
     # Git has mv, so why not cp?
     # If $# > 2, this could stage other local changes...
     cp = "!sh -c 'cp $@ && git add ${@:$#}' -"
+
+    # Amend commit without changing commit message.
+    amend = commit --amend -C HEAD
