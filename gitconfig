@@ -23,9 +23,9 @@
     excludesfile = ~/.gitignore
 
 [push]
-    # If no arguments given, abort.
-    # This prevents the accidental push of a private local branch.
-    default = nothing
+    # Push the current branch to the branch it is tracking.
+    # Aborts with an error if there is no upstream.
+    default = upstream
 
 [merge]
     # Create local, remote and original.
