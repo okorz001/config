@@ -34,9 +34,19 @@
     # Use vimdiff to merge in a terminal.
     tool = vimdiff
 
+[grep]
+    # Show line numbers. (grep -n)
+    lineNumber = true
+
+    # Use extended regexes, i.e. less escaping. (grep -E)
+    extendedRegex = true
+
 [color]
     # Colorize all output if the terminal supports it.
     ui = auto
+
+    # Colorize when using a pager.
+    pager = true
 
 [color "branch"]
     current = cyan bold
@@ -62,11 +72,20 @@
     commit = yellow
     meta = white bold
     frag = cyan
-    func =
+    func = cyan
     old = red
     new = green
     whitespace = white red bold
     plain =
+
+[color "grep"]
+    filename = cyan bold
+    linenumber = magenta bold
+    separator = white bold
+    match = red bold
+    selected =
+    context =
+    function = cyan
 
 [alias]
     # Two-letter abbreviations because I'm lazy.
