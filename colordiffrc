@@ -11,7 +11,9 @@ color_patches=no
 plain=none
 oldtext=darkred
 newtext=darkgreen
+
+# Hunk and context.
 diffstuff=darkcyan
 
-# I don't know what this is because I am not subjected to CVS!
-cvsstuff=darkyellow
+# The diff command header. This is what git calls "meta".
+cvsstuff=white
