@@ -116,3 +116,6 @@
 
     # Amend commit without changing commit message.
     amend = commit --amend -C HEAD
+
+	# Recursive clone. God damn you submodules!!
+	cloner = clone --recursive
