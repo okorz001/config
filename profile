@@ -11,6 +11,13 @@ function)
     ;;
 esac
 
+# Not all of these programs actually require superuser (e.g. ifconfig).
+for d in /sbin /usr/sbin /usr/local/sbin; do
+    if ! echo $PATH | grep -q "$d"; then
+        export PATH="$d:$PATH"
+    fi
+done
+
 # Check my home directory for programs.
 export PATH="$HOME/bin:$PATH"
 
