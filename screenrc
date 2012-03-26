@@ -12,7 +12,7 @@ shelltitle '$ |bash'
 autodetach on
 
 # Buffer output.
-defscrollback 4096
+defscrollback 65536
 
 # Use an alternate buffer for curses apps (e.g. vim) so they don't pollute the
 # terminal after they are closed.
