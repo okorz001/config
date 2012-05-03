@@ -34,6 +34,11 @@
     # Use vimdiff to merge in a terminal.
     tool = vimdiff
 
+[rerere]
+    # Save conflict resolution data so that it may be automatically reused
+    # if the same conflict happens again (e.g. redo a merge or rebase).
+    enabled = true
+
 [grep]
     # Show line numbers. (grep -n)
     lineNumber = true
@@ -117,5 +122,5 @@
     # Amend commit without changing commit message.
     amend = commit --amend -C HEAD
 
-	# Recursive clone. God damn you submodules!!
-	cloner = clone --recursive
+    # Recursive clone. God damn you submodules!!
+    cloner = clone --recursive
