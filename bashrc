@@ -1,28 +1,8 @@
 # ~/.bashrc
 # vim:ft=sh:
 
-# Unfortunately, the export in ~/.profile seems to be overwritten by X11/GNOME.
-export LANG="en_US.UTF-8"
-
-# Abort if this isn't an interactive shell.
-[[ -z "$PS1" ]] && return
-
-# Turn on completion unless we are in strict POSIX mode.
-if [[ -r /etc/bash_completion ]] && ! shopt -oq posix; then
-    . /etc/bash_completion
-fi
-
-# Get rid of that stupid command not found handler.
-unset -f command_not_found_handle
-
 # Use vi key bindings.
 set -o vi
-
-# Default to user-writeable only.
-umask 022
-
-# Check if the window size has been adjusted.
-shopt -s checkwinsize
 
 # The history file lets command history persist between shells.
 HISTFILE="$HOME/.bash_history"
@@ -47,34 +27,8 @@ HISTIGNORE="exit:clear:ls:ll:la"
 # Save and update history after every command.
 PROMPT_COMMAND="history -a; history -r"
 
-# Detect if this terminal type supports ANSI colors.
-if [[ -x /usr/bin/tput ]] && tput setaf 1 &>/dev/null; then
-    # Colorize ls. GNU and BSD userland disagree on how to do this.
-    case "$(uname)" in
-    Linux|CYGWIN*)
-        alias ls="ls --color=auto"
-        export LS_COLORS="no=00:di=01;34:ln=01;36:so=01;35:pi=01;35:ex=01;32:bd=01;33;40:cd=01;33;40:su=01;37;41:sg=01;37;43:tw=01;37;42:ow=01;37;42"
-        ;;
-    Darwin)
-        export CLICOLOR="1"
-        export LSCOLORS="ExGxFxFxCxDxDxHBHDHCHC"
-        ;;
-    esac
-
-    # Colorize the grep family.
-    export GREP_OPTIONS="$GREP_OPTIONS --color=auto"
-    export GREP_COLORS="sl=:cx=:mt=01;31:fn=01;36:ln=01;35:bn=01;35:se=01;37"
-
-    # Colorize man pages (in less) like the linux console.
-    # This is undocumented. A better solution would use termcap directly.
-    export LESS_TERMCAP_us=$'\e[36m'
-    export LESS_TERMCAP_ue=$'\e[0m'
-
-    # Use colordiff if available
-    if which colordiff &>/dev/null; then
-        alias diff="colordiff"
-    fi
-
+# MSYSGIT: MSYS doesn't provide tput, but it does support ANSI colors.
+if true; then
     # Define some ANSI color codes. Note these are all bold/bright.
     black='\[\e[1;30m\]'
     red='\[\e[1;31m\]'
@@ -114,42 +68,6 @@ alias mv="mv -v"
 alias ll="ls -lh"
 alias la="ll -A"
 
-# Convenient function for launching screen as a serial terminal.
-# This will set a nice descriptive tab title as well.
-screen-tty () {
-    screen -t "$1" "$1" "${2:-115200}"
-}
-
-# Do math with python.
-calc () {
-    python -c "from math import *; print $@"
-}
-
-# Here's a wrapper for which that handles aliases, builtins and functions.
-# This could screw up commands relying on which's output if $1 is not a file.
-which () {
-    local arg=""
-    local err="0"
-
-    for arg in $@; do
-        case "$(type -t "$arg")" in
-        alias)
-            alias "$arg"
-            ;;
-        function)
-            declare -f "$arg"
-            ;;
-        builtin)
-            echo "$arg is a builtin"
-            ;;
-        *)
-            /usr/bin/which "$arg" || err="1"
-        esac
-    done
-
-    return "$err"
-}
-
 # Prints a SCM revision identifier.
 # This is a convenience function that detects the SCM type, and then calls
 # the appropriate SCM identification function.
@@ -163,32 +81,8 @@ __scm_ident () {
 
 # Heuristic for determining the current SCM type.
 __scm_detect () {
-    # TODO: Cache the result? At least for the current directory?
-    local d="$(pwd)"
-    while true; do
-        if [[ -d "$d/.git" ]]; then
-            echo "git"
-            return 0
-        elif [[ -d "$d/.hg" ]]; then
-            echo "hg"
-            return 0
-        elif [[ -d "$d/.svn" ]]; then
-            echo "svn"
-            return 0
-        elif [[ -d "$d/CVS" ]]; then
-            echo "cvs"
-            return 0
-        elif [[ "$d" == "/" ]]; then
-            # If we're in the root dir and haven't found anything then give up.
-            return 1
-        fi
-
-        # Try the parent directory.
-        d="$(dirname "$d")"
-    done
-
-    # We shouldn't get here!
-    return 1
+    # MSYSGIT: Only git is supported.
+    echo "git"
 }
 
 # Based off the __git_ps1 function from the bash completion script for git.
@@ -241,36 +135,4 @@ __scm_git_ident () {
     fi
 
     echo "$b$m"
-}
-
-# TODO: This invokes hg, and thus python, four times.
-# The best solution may be to parse the .hg directory ourselves.
-__scm_hg_ident () {
-    local b=""
-    # First, see if we're using a bookmark.
-    # We must seperate the assignment from the local builtin, because local
-    # will return zero even if hg identify fails.
-    b="$(hg identify -B 2>/dev/null)"
-    # Mercurial is dumb and prints usage to stdout, so we have to check the
-    # return code in case bookmarks aren't supported in this version.
-    if [[ $? -ne 0 || -z "$b" ]]; then
-        # Next, check if we've checked out a tag.
-        b="$(hg identify -t 2>/dev/null)"
-        if [[ -n "$b" ]]; then
-            b="tag: $b"
-        else
-            # Finally, just use the local revision and the abbreviated SHA1.
-            b="$(hg identify -n 2>/dev/null): $(hg identify -i 2>/dev/null)..."
-        fi
-    fi
-
-    echo "$b"
-}
-
-__scm_svn_ident () {
-    local r="$(svnversion 2>/dev/null)"
-    r="${r/[^0-9]*/}"
-    if [[ -n "$r" ]]; then
-        echo "r$r"
-    fi
 }

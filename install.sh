@@ -49,16 +49,9 @@ done
 # is the repository relative path and the second is the absolute install path.
 files=(
     "bashrc"        "$HOME/.bashrc"
-    "colordiffrc"   "$HOME/.colordiffrc"
-    "conkyrc"       "$HOME/.conkyrc"
-    "gdbinit"       "$HOME/.gdbinit"
     "gitconfig"     "$HOME/.gitconfig"
     "gitignore"     "$HOME/.gitignore"
-    "hgrc"          "$HOME/.hgrc"
-    "inputrc"       "$HOME/.inputrc"
     "profile"       "$HOME/.profile"
-    "screenrc"      "$HOME/.screenrc"
-    "vimrc"         "$HOME/.vimrc"
 )
 
 # Execute a command while respecting the -n and -q options.
