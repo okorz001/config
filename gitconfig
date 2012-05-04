@@ -115,12 +115,14 @@
     l1 = log --pretty=oneline --abbrev-commit --decorate --graph
     lf = log --pretty=fuller --decorate --graph --stat
 
-    # Git has mv, so why not cp?
-    # If $# > 2, this could stage other local changes...
-    cp = "!sh -c 'cp $@ && git add ${@:$#}' -"
+    # Edit last commit message.
+    edit = commit --amend
 
     # Amend commit without changing commit message.
     amend = commit --amend -C HEAD
 
     # Recursive clone. God damn you submodules!!
     cloner = clone --recursive
+
+    # Print all aliases.
+    alias = "!f () { git config -l $@ | sed -ne 's/^alias\\.\\(.*\\)/\\1/p'; }; f"
