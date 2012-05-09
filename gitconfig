@@ -34,10 +34,17 @@
     # Use vimdiff to merge in a terminal.
     tool = vimdiff
 
+[mergetool "gui"]
+    # Command for use with gmt alias.
+    cmd = meld $LOCAL $MERGED $REMOTE
+
 [rerere]
     # Save conflict resolution data so that it may be automatically reused
     # if the same conflict happens again (e.g. redo a merge or rebase).
     enabled = true
+
+    # Immediately add automatically resolved conflicts to the index.
+    autoupdate = true
 
 [grep]
     # Show line numbers. (grep -n)
@@ -99,6 +106,10 @@
     co = checkout
     st = status
     sub = submodule
+    mt = mergetool -y
+
+    # Mergetool with custom gui command.
+    gmt = mergetool -y --tool gui
 
     # pi is short for pick. cp is a bad idea... :)
     pi = cherry-pick
