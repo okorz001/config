@@ -1,6 +1,20 @@
 # ~/.conkyrc
 # vim:ft=conf:
 
+# By default Conky draws directly to the X display.
+# This doesn't work anymore with Gnome 3, so create our own window.
+own_window yes
+
+# Here's a collection of options to simulate the old X display behavior.
+# undecorated   : Do not draw menu bars. Also means window cannot be moved.
+# below         : Put Conky on the bottom of the Z-list.
+# sticky        : Keep Conky on every workspace.
+# skip_taskbar  : Hide Conky from the Windows selection thing.
+own_window_hints undecorated,below,sticky,skip_taskbar
+
+# Combined with the hints, this simulates drawing directly to X display.
+own_window_transparent yes
+
 # Where to align on the desktop.
 alignment top_left
 
@@ -14,7 +28,7 @@ default_color white
 use_xft true
 
 # XFT font to use.
-xftfont Terminus:size=12
+xftfont Monospace:size=10
 
 # How often to refresh, in seconds.
 update_interval 1
