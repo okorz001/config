@@ -53,7 +53,6 @@ files=(
     "conkyrc"       "$HOME/.conkyrc"
     "gdbinit"       "$HOME/.gdbinit"
     "gitconfig"     "$HOME/.gitconfig"
-    "gitignore"     "$HOME/.gitignore"
     "hgrc"          "$HOME/.hgrc"
     "inputrc"       "$HOME/.inputrc"
     "profile"       "$HOME/.profile"

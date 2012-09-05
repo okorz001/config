@@ -19,9 +19,6 @@
     # Pager for multi-screen output.
     pager = less
 
-    # A file of exclude patterns to apply to all repos.
-    excludesfile = ~/.gitignore
-
 [push]
     # Push the current branch to the branch it is tracking.
     # Aborts with an error if there is no upstream.
