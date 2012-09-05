@@ -1,0 +1,61 @@
+! ~/.Xresources
+! vim:ft=xdefaults:
+
+! Global settings ------------------------------------------------------------!
+
+! Gray on black. (7 on 0)
+*foreground: #AAAAAA
+*background: #000000
+
+! Black.
+*color0: #000000
+*color8: #555555
+
+! Red.
+*color1: #AA0000
+*color9: #FF5555
+
+! Green.
+*color2: #00AA00
+*color10: #55FF55
+
+! Yellow.
+*color3: #AA5500
+*color11: #FFFF55
+
+! Blue.
+*color4: #0000AA
+*color12: #5555FF
+
+! Magenta.
+*color5: #AA00AA
+*color13: #FF55FF
+
+! Cyan.
+*color6: #00AAAA
+*color14: #55FFFF
+
+! White.
+*color7: #AAAAAA
+*color15: #FFFFFF
+
+! RXVT Unicode ---------------------------------------------------------------!
+
+! The value of $TERM. More descriptive names seem to mess up termcap.
+URxvt*termName: rxvt
+
+! No transparency.
+URxvt*transparent: false
+
+! Terminal font. For Ubuntu this requires the xfonts-terminus package.
+URxvt*font: xft:Terminus:pixelsize=12
+URxvt*boldFont: xft:Terminus:pixelsize=12:bold
+
+! Enable a scroll bar.
+URxvt*scrollBar: true
+
+! By default, urxvt puts it on the left side.
+URxvt*scrollBar_right: true
+
+! Other options do not seem to work correctly.
+URxvt*scrollstyle: rxvt
