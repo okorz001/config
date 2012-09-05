@@ -48,6 +48,7 @@ done
 # List of files to install. Every two elements are logically paired; the first
 # is the repository relative path and the second is the absolute install path.
 files=(
+    "Xresources"    "$HOME/.Xresources"
     "bashrc"        "$HOME/.bashrc"
     "colordiffrc"   "$HOME/.colordiffrc"
     "conkyrc"       "$HOME/.conkyrc"
