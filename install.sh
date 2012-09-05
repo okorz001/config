@@ -69,7 +69,7 @@ execute () {
 }
 
 for (( i = 0; i < ${#files[@]}; i += 2 )); do
-    src="${files[i]}"
+    src="$(pwd)/${files[i]}"
     dst="${files[i + 1]}"
 
     if [[ -f "$dst" && -n "$suffix" ]]; then
