@@ -26,7 +26,7 @@ HERE
             suffix="$OPTARG"
             ;;
         f)
-            force="-f"
+            force="f"
             ;;
         n)
             dry_run=1
@@ -45,10 +45,15 @@ HERE
     esac
 done
 
+# If $XDG_CONFIG_HOME is not defined, fallback to $HOME/.config.
+# http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
+xdg_dir="${XDG_CONFIG_HOME:-$HOME/.config}"
+
 # List of files to install. Every two elements are logically paired; the first
 # is the repository relative path and the second is the absolute install path.
 files=(
     "Xresources"    "$HOME/.Xresources"
+    "awesome"       "$xdg_dir/awesome"
     "bashrc"        "$HOME/.bashrc"
     "colordiffrc"   "$HOME/.colordiffrc"
     "conkyrc"       "$HOME/.conkyrc"
@@ -59,6 +64,8 @@ files=(
     "profile"       "$HOME/.profile"
     "screenrc"      "$HOME/.screenrc"
     "vimrc"         "$HOME/.vimrc"
+    "xinitrc"       "$HOME/.xinitrc"
+    "xinitrc"       "$HOME/.xsession"
 )
 
 # Execute a command while respecting the -n and -q options.
@@ -76,5 +83,5 @@ for (( i = 0; i < ${#files[@]}; i += 2 )); do
         execute cp "$dst" "$dst$suffix"
     fi
 
-    execute ln -s "$force" "$src" "$dst"
+    execute ln -sn"$force" "$src" "$dst"
 done
