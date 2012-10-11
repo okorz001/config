@@ -59,6 +59,7 @@ files=(
     "conkyrc"       "$HOME/.conkyrc"
     "gdbinit"       "$HOME/.gdbinit"
     "gitconfig"     "$HOME/.gitconfig"
+    "gtkrc-2.0"     "$HOME/.gtkrc-2.0"
     "hgrc"          "$HOME/.hgrc"
     "inputrc"       "$HOME/.inputrc"
     "profile"       "$HOME/.profile"

@@ -1,0 +1,40 @@
+# ~/.gtkrc-2.0
+# vim:ft=gtkrc:
+
+style "default" {
+    # Default colors.
+    # bg, fg are used for most widgets.
+    # base, text are used for textboxes and lists.
+    bg[NORMAL] = "#202020"
+    fg[NORMAL] = "#FFFFFF"
+    base[NORMAL] = "#000000"
+    text[NORMAL] = "#AAAAAA"
+
+    # Colors for widgets that cannot be selected.
+    bg[INSENSITIVE] = "#202020"
+    fg[INSENSITIVE] = "#000000"
+    base[INSENSITIVE] = "#000000"
+    text[INSENSITIVE] = "#AAAAAA"
+
+    # Mouse-over colors.
+    bg[PRELIGHT] = "#CC5500"
+    fg[PRELIGHT] = "#FFFFFF"
+    base[PRELIGHT] = "#000000"
+    text[PRELIGHT] = "#AAAAAA"
+
+    # Not really sure about this one.
+    # Used for the scrollbar track and for depressed buttons. 
+    bg[ACTIVE] = "#555555"
+    fg[ACTIVE] = "#FFFFFF"
+    base[ACTIVE] = "#000000"
+    text[ACTIVE] = "#AAAAAA"
+
+    # Highlighted text or selected items.
+    bg[SELECTED] = "#CC5500"
+    fg[SELECTED] = "#FFFFFF"
+    base[SELECTED] = "#CC5500"
+    text[SELECTED] = "#FFFFFF"
+}
+
+# Apply the above style to all widgets.
+class "GtkWidget" style "default"
