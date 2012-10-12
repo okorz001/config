@@ -8,7 +8,7 @@ style "default" {
     bg[NORMAL] = "#202020"
     fg[NORMAL] = "#FFFFFF"
     base[NORMAL] = "#000000"
-    text[NORMAL] = "#AAAAAA"
+    text[NORMAL] = "#FFFFFF"
 
     # Colors for widgets that cannot be selected.
     bg[INSENSITIVE] = "#202020"
@@ -30,7 +30,7 @@ style "default" {
     text[ACTIVE] = "#AAAAAA"
 
     # Highlighted text or selected items.
-    bg[SELECTED] = "#CC5500"
+    bg[SELECTED] = "#000000"
     fg[SELECTED] = "#FFFFFF"
     base[SELECTED] = "#CC5500"
     text[SELECTED] = "#FFFFFF"
