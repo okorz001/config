@@ -16,6 +16,9 @@ case "$wm" in
         # Load Xresources.
         xrdb -merge ~/.Xresources
 
+        # Load keymap.
+        xmodmap ~/.xmodmaprc
+
         # Start xscreensaver without the about window.
         xscreensaver -nosplash &
 

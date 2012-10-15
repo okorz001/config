@@ -67,6 +67,7 @@ files=(
     "vimrc"         "$HOME/.vimrc"
     "xinitrc"       "$HOME/.xinitrc"
     "xinitrc"       "$HOME/.xsession"
+    "xmodmaprc"     "$HOME/.xmodmaprc"
 )
 
 # Execute a command while respecting the -n and -q options.
