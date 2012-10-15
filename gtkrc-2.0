@@ -26,8 +26,8 @@ style "default" {
     # Used for the scrollbar track and for depressed buttons. 
     bg[ACTIVE] = "#555555"
     fg[ACTIVE] = "#FFFFFF"
-    base[ACTIVE] = "#000000"
-    text[ACTIVE] = "#AAAAAA"
+    base[ACTIVE] = "#CC5500"
+    text[ACTIVE] = "#FFFFFF"
 
     # Highlighted text or selected items.
     bg[SELECTED] = "#000000"
