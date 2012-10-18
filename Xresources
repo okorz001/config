@@ -70,8 +70,9 @@ Xft.dpi: 96
 
 ! RXVT Unicode ---------------------------------------------------------------!
 
-! The value of $TERM. More descriptive names seem to mess up termcap.
-URxvt*termName: rxvt
+! The value of $TERM. On Debian, urxvt prefers rxvt-unicode but there is no
+! terminfo entry for this name on older machines (e.g. CentOS 5).
+URxvt*termName: rxvt-256color
 
 ! No transparency.
 URxvt*transparent: false
