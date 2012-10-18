@@ -55,6 +55,7 @@ files=(
     "Xresources"    "$HOME/.Xresources"
     "awesome"       "$xdg_dir/awesome"
     "bashrc"        "$HOME/.bashrc"
+    "bashrc.d"      "$HOME/.bashrc.d"
     "colordiffrc"   "$HOME/.colordiffrc"
     "conkyrc"       "$HOME/.conkyrc"
     "gdbinit"       "$HOME/.gdbinit"
