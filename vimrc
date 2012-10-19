@@ -4,6 +4,9 @@
 " vi compatibilty must be disabled to allow most features.
 set nocompatible
 
+" This colorscheme looks good in a dark terminal.
+colorscheme evening
+
 " Return to command mode if two j's are typed.
 imap jj <ESC>
 
