@@ -81,14 +81,8 @@ URxvt*transparent: false
 URxvt*font: xft:terminus:size=12
 URxvt*boldFont: xft:terminus:bold:size=12
 
-! Enable a scroll bar.
-URxvt*scrollBar: true
-
-! By default, urxvt puts it on the left side.
-URxvt*scrollBar_right: true
-
-! Other options do not seem to work correctly.
-URxvt*scrollstyle: rxvt
+! Disable the scroll bar. Use Shift+PgUp and Shift+PgDn to scroll.
+URxvt*scrollBar: false
 
 ! Disable borders makes tiling in awesome look better.
 URxvt*internalBorder: 0
