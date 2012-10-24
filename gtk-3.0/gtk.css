@@ -1,0 +1,39 @@
+/* ~/.config/gtk-3.0/gtk.css */
+/* vim:ft=css: */
+
+/* Universal selector, matches all widgets. */
+* {
+    color: #FFFFFF;
+    background-color: #202020;
+    border-top-color: #303030;
+    border-left-color: #303030;
+    border-bottom-color: #101010;
+    border-right-color: #101010;
+}
+
+*:insensitive {
+    color: #000000;
+}
+
+*:prelight, *:selected {
+    background-color: #CC5500;
+    border-top-color: #FFA500;
+    border-left-color: #FFA500;
+    border-bottom-color: #964B00;
+    border-right-color: #964B00;
+}
+
+/* Text box type widgets. */
+GtkEntry, GtkTextView, GtkTreeView {
+    background-color: #000000;
+}
+
+GtkEntry:insensitive, GtkTextView:insensitive,
+GtkEntry:prelight, GtkTextView:prelight {
+    color: #AAAAAA;
+}
+
+GtkEntry:selected, GtkTextView:selected {
+    color: #FFFFFF;
+    background-color: #CC5500;
+}
