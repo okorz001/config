@@ -65,6 +65,7 @@ files=(
     "hgrc"          "$HOME/.hgrc"
     "inputrc"       "$HOME/.inputrc"
     "profile"       "$HOME/.profile"
+    "profile"       "$HOME/.xsessionrc"
     "profile.d"     "$HOME/.profile.d"
     "screenrc"      "$HOME/.screenrc"
     "vimrc"         "$HOME/.vimrc"
