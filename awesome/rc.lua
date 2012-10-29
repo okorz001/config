@@ -75,11 +75,11 @@ tags.info = {
     },
     {
         title = "web",
-        progs = { "Chromium", "Firefox", "Iceweasel" },
+        progs = { "Chromium", "Navigator" },
     },
     {
         title = "mail",
-        progs = { "Icedove", "Thunderbird" },
+        progs = { "Mail" },
     },
     {
         title = "doc",
