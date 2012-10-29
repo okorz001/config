@@ -18,8 +18,8 @@ require("obvious")
 -- Mac OS X's Exposé.
 require("revelation")
 
--- Load a theme.
-beautiful.init("/usr/share/awesome/themes/default/theme.lua")
+-- Load my theme.
+beautiful.init(awful.util.getdir("config") .. "/theme.lua")
 
 -- Helper function to find applications on your PATH using which.
 -- apps is a list of applications in order of decreasing preference.
@@ -132,12 +132,6 @@ table.insert(mymainmenu.items, { "Quit", awesome.quit })
 
 mymainmenu.menu = awful.menu({ items = mymainmenu.items })
 
--- Create a launcher widget that opens the main menu.
-mylauncher = awful.widget.launcher({
-    image = image(beautiful.awesome_icon),
-    menu = mymainmenu.menu
-})
-
 -- Define mouse bindings for taglist widgets.
 mytaglist = {}
 mytaglist.buttons = awful.util.table.join(
@@ -235,7 +229,6 @@ for s = 1, screen.count() do
     mywibox[s].widgets = {
         -- These widgets are added from left to right.
         {
-            mylauncher,
             mytaglist[s],
             mypromptbox[s],
             layout = awful.widget.layout.horizontal.leftright
