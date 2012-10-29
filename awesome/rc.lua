@@ -70,6 +70,10 @@ tags = {}
 -- Assign a name and programs to tabs.
 tags.info = {
     {
+        title = "emacs",
+        progs = { "Emacs" },
+    },
+    {
         title = "web",
         progs = { "Chromium", "Firefox", "Iceweasel" },
     },
@@ -80,10 +84,6 @@ tags.info = {
     {
         title = "doc",
         progs = { "Xpdf", "libreoffice-.*" },
-    },
-    {
-        title = "game",
-        progs = { "openttd" },
     },
     {
         title = "IM",

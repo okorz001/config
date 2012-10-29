@@ -58,6 +58,7 @@ files=(
     "bashrc.d"      "$HOME/.bashrc.d"
     "colordiffrc"   "$HOME/.colordiffrc"
     "conkyrc"       "$HOME/.conkyrc"
+    "emacs.d/init.el"   "$HOME/.emacs.d/init.el"
     "gdbinit"       "$HOME/.gdbinit"
     "gitconfig"     "$HOME/.gitconfig"
     "gtk-3.0"       "$xdg_dir/gtk-3.0"
