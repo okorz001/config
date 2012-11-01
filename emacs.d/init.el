@@ -9,3 +9,7 @@
 
 ; Set column boundary.
 (setq fill-column 79)
+
+; JetHead coding style -- BSD indentation with 4 width tabs.
+(setq c-default-style "bsd")
+(setq-default tab-width 4)
