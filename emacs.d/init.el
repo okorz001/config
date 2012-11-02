@@ -8,8 +8,21 @@
 (scroll-bar-mode -1)
 
 ; Set column boundary.
-(setq fill-column 79)
+(setq-default fill-column 79)
 
-; JetHead coding style -- BSD indentation with 4 width tabs.
-(setq c-default-style "bsd")
+; View tabs as 4 spaces.
 (setq-default tab-width 4)
+
+; JetHead coding style.
+(defun set-jh-style ()
+    ; Use Stroustrup as a base.
+    (setq c-default-style "stroustrup")
+
+    ; Indent by four.
+    (setq c-basic-offset 4)
+
+    ; Indent with tab characters, not spaces.
+    (setq indent-tabs-mode t))
+
+; Use JetHead style automatically when opening a file in cc-mode.
+(add-hook 'c-mode-common-hook 'set-jh-style)
