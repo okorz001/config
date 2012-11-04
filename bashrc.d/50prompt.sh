@@ -3,8 +3,8 @@ PS1="$green\\u@\\h$white:$blue\\w$cyan\$(__scm_ident)\n$white\\\$$none "
 PS2="$white>$none "
 
 case "$TERM" in
-?term*|rxvt*)
-    # If we're in a GUI terminal, set a nice window title.
+xterm*|rxvt*)
+    # If we're in an X11 terminal emulator, set a window title.
     PS1='\[\e]0;\u@\h: \w\a\]'"$PS1"
     ;;
 screen*)
