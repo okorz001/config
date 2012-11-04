@@ -25,6 +25,9 @@
     default = upstream
 
 [merge]
+    # If no argument is given, merge the upstream. (Remember to fetch!)
+    defaultToUpstream = true
+
     # Create local, remote and original.
     conflictstyle = diff3
 
