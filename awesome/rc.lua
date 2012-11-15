@@ -359,6 +359,22 @@ globalkeys = awful.util.table.join(
         else
             awful.util.spawn(apps.screenshot)
         end
+    end),
+
+    awful.key({}, "XF86AudioPlay", function ()
+        awful.util.spawn("audtool --playback-playpause")
+    end),
+
+    awful.key({}, "XF86AudioRaiseVolume", function ()
+        awful.util.spawn("amixer set Master playback 2+")
+    end),
+
+    awful.key({}, "XF86AudioLowerVolume", function ()
+        awful.util.spawn("amixer set Master playback 2-")
+    end),
+
+    awful.key({}, "XF86AudioMute", function ()
+        awful.util.spawn("amixer set Master toggle")
     end)
 )
 
