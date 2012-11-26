@@ -73,8 +73,18 @@ theme.titlebar_maximized_button_focus_inactive  = "/usr/share/awesome/themes/def
 theme.titlebar_maximized_button_normal_active = "/usr/share/awesome/themes/default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = "/usr/share/awesome/themes/default/titlebar/maximized_focus_active.png"
 
--- You can use your own command to set your wallpaper
-theme.wallpaper_cmd = { "awsetbg /usr/share/awesome/themes/default/background.png" }
+-- Set the wallpaper.
+theme.wallpaper = awful.util.getdir("config") .. "/wallpaper"
+
+-- If no wallpaper has been set, use a default.
+f = io.open(theme.wallpaper, "r")
+if f == nil then
+    theme.wallpaper = "/usr/share/images/desktop-base/nightly-wallpaper.png"
+else
+    -- Don't leak the file.
+    io.close(f)
+end
+theme.wallpaper_cmd = { "awsetbg " .. theme.wallpaper }
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = "/usr/share/awesome/themes/default/layouts/fairhw.png"
