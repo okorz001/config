@@ -28,6 +28,9 @@ filetype indent on
 " Enable syntax coloring.
 syntax enable
 
+" Disable visual bell.
+set visualbell
+
 " Emulate readline (bash) completion.
 set wildmode=longest,list
 
