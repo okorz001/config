@@ -137,3 +137,7 @@
 
     # Print all aliases.
     alias = "!f () { git config -l $@ | sed -ne 's/^alias\\.\\(.*\\)/\\1/p'; }; f"
+
+    # Print submodule status. This uses the shell so that it's executed from
+    # the repository's root directory.
+    ss = "!git submodule status"
