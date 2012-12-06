@@ -19,7 +19,7 @@ require("obvious")
 require("revelation")
 
 -- Load my theme.
-beautiful.init(awful.util.getdir("config") .. "/theme.lua")
+beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
 -- Helper function to find applications on your PATH using which.
 -- apps is a list of applications in order of decreasing preference.

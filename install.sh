@@ -61,8 +61,6 @@ files=(
     "emacs.d/init.el"   "$HOME/.emacs.d/init.el"
     "gdbinit"       "$HOME/.gdbinit"
     "gitconfig"     "$HOME/.gitconfig"
-    "gtk-3.0"       "$xdg_dir/gtk-3.0"
-    "gtkrc-2.0"     "$HOME/.gtkrc-2.0"
     "hgrc"          "$HOME/.hgrc"
     "inputrc"       "$HOME/.inputrc"
     "profile"       "$HOME/.profile"
