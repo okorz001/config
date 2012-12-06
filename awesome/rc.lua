@@ -47,6 +47,7 @@ end
 
 -- Find applications that we will use for key bindings.
 apps = {
+    calculator = find_app({ "galculator" }),
     file_manager = find_app({ "thunar", "nautilus" }),
     screensaver = find_app({ "xscreensaver", "gnome-screensaver" }),
     screenshot = find_app({ "scrot" }),
@@ -375,6 +376,14 @@ globalkeys = awful.util.table.join(
 
     awful.key({}, "XF86AudioMute", function ()
         awful.util.spawn("amixer set Master toggle")
+    end),
+
+    awful.key({}, "XF86Calculator", function ()
+        if (apps.calculator == nil) then
+            app_not_found("calculator")
+        else
+            awful.util.spawn(apps.calculator)
+        end
     end)
 )
 
