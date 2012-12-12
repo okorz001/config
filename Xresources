@@ -90,3 +90,7 @@ URxvt*externalBorder: 0
 
 ! Mark the window as urgent when an audible bell is received.
 URxvt*urgentOnBell: true
+
+! Disable unicode entry (a.k.a. Shift + Control yellow rectangle of doom).
+URxvt*iso14755: false
+URxvt*iso14755_52: false
