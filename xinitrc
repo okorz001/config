@@ -37,6 +37,9 @@ case "$wm" in
         # Start the thunar daemon.
         thunar --daemon &
 
+        # Start the battery applet.
+        xfce4-power-manager --no-daemon &
+
         # Start awesome.
         exec awesome
         ;;
