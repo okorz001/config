@@ -27,10 +27,6 @@
 #define MAGENTA #FF55FF
 #define DARK_MAGENTA #AA00AA
 
-! Gray on black. (7 on 0)
-*foreground: GRAY
-*background: BLACK
-
 ! Black.
 *color0: BLACK
 *color8: DARK_GRAY
@@ -73,6 +69,10 @@ Xft.dpi: 96
 ! The value of $TERM. On Debian, urxvt prefers rxvt-unicode but there is no
 ! terminfo entry for this name on older machines (e.g. CentOS 5).
 URxvt*termName: rxvt-256color
+
+! Gray on black. (7 on 0)
+URxvt*foreground: GRAY
+URxvt*background: BLACK
 
 ! No transparency.
 URxvt*transparent: false
