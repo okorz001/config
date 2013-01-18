@@ -63,6 +63,7 @@ files=(
     "gitconfig"     "$HOME/.gitconfig"
     "hgrc"          "$HOME/.hgrc"
     "inputrc"       "$HOME/.inputrc"
+    "lxsession"       "$xdg_dir/lxsession"
     "profile"       "$HOME/.profile"
     "profile"       "$HOME/.xsessionrc"
     "profile.d"     "$HOME/.profile.d"

@@ -1,0 +1,9 @@
+echo @lxpanel --profile Lubuntu
+@xscreensaver -no-splash
+@xfce4-power-manager --no-daemon
+echo @pcmanfm --desktop --profile lubuntu
+@/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+@urxvtd -o
+@remmina -i
+xmodmap ~/.xmodmaprc
+xrdb -merge ~/.Xresources
