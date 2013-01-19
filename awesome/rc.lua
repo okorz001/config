@@ -48,7 +48,7 @@ end
 -- Find applications that we will use for key bindings.
 apps = {
     calculator = find_app({ "galculator" }),
-    file_manager = find_app({ "thunar", "nautilus" }),
+    file_manager = find_app({ "pcmanfm", "thunar", "nautilus" }),
     screensaver = find_app({ "xscreensaver", "gnome-screensaver" }),
     screenshot = find_app({ "scrot" }),
     terminal = find_app({ "urxvtc", "x-terminal-emulator", "gnome-terminal" })
