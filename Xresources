@@ -77,9 +77,9 @@ URxvt*background: BLACK
 ! No transparency.
 URxvt*transparent: false
 
-! Set a monospace font. For Debian and Ubuntu this requires xfonts-terminus.
-URxvt*font: xft:terminus:size=12
-URxvt*boldFont: xft:terminus:bold:size=12
+! Set a monospace font.
+URxvt*font: xft:Monospace:size=10
+URxvt*boldFont: xft:Monospace:bold:size=10
 
 ! Disable the scroll bar. Use Shift+PgUp and Shift+PgDn to scroll.
 URxvt*scrollBar: false
