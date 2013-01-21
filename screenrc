@@ -33,28 +33,3 @@ hardstatus ignore "%?%0`%:unknown%? - screen"
 
 # List all tabs and the current time at the bottom of the display.
 caption always "%{=b kw}%-Lw%45L>%{kR}%n%f %t%{-}%+Lw%-015= %m/%d/%y %c"
-
-# Use vi-like bindings for moving between splits.
-bind j focus down
-bind k focus up
-
-# screen doesn't differentiate between up/down and left/right.
-bind h focus up
-bind l focus down
-
-# Forgive me if I don't let go off the control key fast enough.
-bind ^J focus down
-bind ^K focus up
-bind ^H focus up
-bind ^L focus down
-
-# Rebind kill to K.
-bind K kill
-
-# Rebind remove to q/^Q. Think "quit".
-bind q remove
-bind ^Q remove
-
-# We just unbound xon, so we better unbind xoff.
-bind s
-bind ^S
