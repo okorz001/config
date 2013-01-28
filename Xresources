@@ -94,3 +94,5 @@ URxvt*urgentOnBell: true
 ! Disable unicode entry (a.k.a. Shift + Control yellow rectangle of doom).
 URxvt*iso14755: false
 URxvt*iso14755_52: false
+
+URxvt*perl-ext-common: default,clipboard

@@ -67,6 +67,7 @@ files=(
     "profile"       "$HOME/.xsessionrc"
     "profile.d"     "$HOME/.profile.d"
     "screenrc"      "$HOME/.screenrc"
+    "urxvt/ext"     "$HOME/.urxvt/ext"
     "vimrc"         "$HOME/.vimrc"
     "xinitrc"       "$HOME/.xinitrc"
     "xinitrc"       "$HOME/.xsession"

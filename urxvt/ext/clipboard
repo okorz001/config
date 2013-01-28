@@ -1,0 +1,16 @@
+#!/usr/bin/env perl
+
+# This function copies the text selection into the X clipboard buffer.
+# This functoin is dependent on the xsel package.
+# This code snippet was taken from the urxvt-clipboard package from Arch:
+#   https://wiki.archlinux.org/index.php/Rxvt-unicode
+sub on_sel_grab
+{
+    my $query = $_[0]->selection;
+    open (my $pipe, '|-', 'xsel -ib') or die;
+    print $pipe $query;
+    close $pipe;
+    open (my $pipe, '|-', 'xsel -ip') or die;
+    print $pipe $query;
+    close $pipe;
+}
