@@ -114,10 +114,12 @@
     # pi is short for pick. cp is a bad idea... :)
     pi = cherry-pick
 
-    # Sync our view of all remotes. We should have a perfect mirror now.
-    # --prune drops all remote branches that are now stale (have been deleted).
-    # --tags fetchs tags that are otherwise unreachable by branches.
-    sync = fetch --prune --tags --all
+    # Sync our view of a remote. We should have a perfect mirror now.
+    # Starting with git 1.8.0, it seems that --tags prevents branches from
+    # being updated, so fetch the tags separately first (before pruning!).
+    # --prune deletes all remote branches that have been deleted on the remote.
+    # --tags fetchs all tags include those unreachable by branches alone.
+    sync = "!f () { git fetch --tags $@ && git fetch --prune $@; }; f"
 
     # Get the current SHA1 hash.
     where = log --pretty=format:%H -1
