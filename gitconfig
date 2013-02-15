@@ -120,6 +120,7 @@
     # --prune deletes all remote branches that have been deleted on the remote.
     # --tags fetchs all tags include those unreachable by branches alone.
     sync = "!f () { git fetch --tags $@ && git fetch --prune $@; }; f"
+    syncall = "!for r in `git remote`; do git sync $r; done"
 
     # Get the current SHA1 hash.
     where = log --pretty=format:%H -1
