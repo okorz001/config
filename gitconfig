@@ -19,6 +19,9 @@
     # Pager for multi-screen output.
     pager = less
 
+[diff]
+    submodule = log
+
 [push]
     # Push the current branch to the branch it is tracking.
     # Aborts with an error if there is no upstream.
