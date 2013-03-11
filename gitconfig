@@ -56,6 +56,10 @@
     # Use extended regexes, i.e. less escaping. (grep -E)
     extendedRegex = true
 
+[log]
+    # Use ISO date format: YYYY-MM-DD hh:mm:ss Z
+    date = iso
+
 [color]
     # Colorize all output if the terminal supports it.
     ui = auto
@@ -129,8 +133,8 @@
     where = log --pretty=format:%H -1
 
     # Quick and dirty history graph. Good for cherry-picking/rebasing.
-    l1 = log --pretty=oneline --abbrev-commit --decorate --graph
-    lf = log --pretty=fuller --decorate --graph --stat
+    l1 = log --pretty=oneline --abbrev-commit --date-order --decorate --graph
+    lf = log --pretty=fuller --date-order --decorate --graph --stat
 
     # Edit last commit message.
     edit = commit --amend
