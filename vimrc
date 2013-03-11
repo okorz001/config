@@ -193,7 +193,7 @@ function! ScmBlame()
         echo "ERROR: b:scm_type is not set."
         echohl
     elseif b:scm_type == "git"
-        execute "!git blame --date=short " . expand("%")
+        execute "!git blame -C -C --date=short " . expand("%")
     elseif b:scm_type == "hg"
         execute "!hg blame -ucdq " . expand("%")
     elseif b:scm_type == "svn"
