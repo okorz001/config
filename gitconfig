@@ -129,8 +129,11 @@
     sync = "!f () { git fetch --tags $@ && git fetch --prune $@; }; f"
     syncall = "!for r in `git remote`; do git sync $r; done"
 
-    # Get the current SHA1 hash.
+    # Show the commit's SHA1 hash.
     where = log --pretty=format:%H -1
+
+    # Show all information about this commit.
+    what = show --pretty=fuller
 
     # Quick and dirty history graph. Good for cherry-picking/rebasing.
     l1 = log --pretty=oneline --abbrev-commit --date-order --decorate --graph
