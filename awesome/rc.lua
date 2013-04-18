@@ -123,13 +123,23 @@ for s = 2, screen.count() do
     tags[s] = awful.tag({1, 2, 3, 4}, s, layouts[1])
 end
 
+-- A logout function that kills the session manager, if one exists.
+function logout()
+	de = os.getenv("XDG_CURRENT_DESKTOP")
+	if de == "LXDE" then
+		awful.util.spawn("lxsession-logout")
+	else
+		awesome.quit()
+	end
+end
+
 -- Create a main menu.
 mymainmenu = { items = {} }
 
 -- A seperator.
 table.insert(mymainmenu.items, { "---", nil })
 table.insert(mymainmenu.items, { "Restart", awesome.restart })
-table.insert(mymainmenu.items, { "Quit", awesome.quit })
+table.insert(mymainmenu.items, { "Quit", logout })
 
 mymainmenu.menu = awful.menu({ items = mymainmenu.items })
 
@@ -304,7 +314,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "r", awesome.restart),
 
     -- ^q quits awesome.
-    awful.key({ modkey, "Control" }, "q", awesome.quit),
+    awful.key({ modkey, "Control" }, "q", logout),
 
     -- ^l launches the screensaver as defined above.
     awful.key({ modkey, "Control" }, "l", function ()
