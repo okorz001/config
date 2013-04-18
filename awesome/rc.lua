@@ -88,7 +88,7 @@ tags.info = {
     },
     {
         title = "doc",
-        progs = { "Xpdf", "libreoffice-.*" },
+        progs = { "Xpdf", "evince", "libreoffice-.*" },
     },
     {
         title = "IM",
