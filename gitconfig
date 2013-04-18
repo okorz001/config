@@ -154,3 +154,6 @@
     # Print submodule status. This uses the shell so that it's executed from
     # the repository's root directory.
     ss = "!git submodule status; echo; git submodule summary"
+
+    # Improved blame: check for copy paste and ignore whitespace.
+    wtf = blame -w -C -C
