@@ -21,6 +21,10 @@ require("revelation")
 -- Load my theme.
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
+-- Change the borders for a better visual cue.
+beautiful.border_width = 2
+beautiful.border_focus = "#5555FF"
+
 -- Helper function to find applications on your PATH using which.
 -- apps is a list of applications in order of decreasing preference.
 function find_app(apps)
