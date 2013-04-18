@@ -118,9 +118,10 @@ end
 -- Create the tags. They are assigned to the primary screen.
 tags[1] = awful.tag(tags.names, 1, layouts[1])
 
--- Create generic tags for the other screens.
+-- Create a single tag for any additional screens. It is inconvenient to have
+-- multiple tags for these screens since I have no hotkeys to switch them.
 for s = 2, screen.count() do
-    tags[s] = awful.tag({1, 2, 3, 4}, s, layouts[1])
+    tags[s] = awful.tag({1}, s, layouts[1])
 end
 
 -- A logout function that kills the session manager, if one exists.
