@@ -14,5 +14,8 @@ for f in ~/.profile.d/*.sh; do
     . $f
 done
 
+# Source local environment if it exists.
+[ -e ~/.profile.local ] && . ~/.profile.local
+
 # bash is stupid, so explicitly source bashrc for interactive login shells.
 [ -n "$BASH" -a -n "$PS1" ] && . ~/.bashrc

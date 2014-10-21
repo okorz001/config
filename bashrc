@@ -8,3 +8,6 @@
 for f in ~/.bashrc.d/*.sh; do
     . "$f"
 done
+
+# Source local config if it exists.
+[ -e ~/.bashrc.local ] && . ~/.bashrc.local
