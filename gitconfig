@@ -157,3 +157,6 @@
 
     # Improved blame: check for copy paste and ignore whitespace.
     wtf = blame -w -C -C
+
+    # Delete all merged local branches.
+    trim = "!f () { git branch --merged origin/master | grep -v '*' | xargs git branch -d; }; f"
