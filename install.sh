@@ -52,26 +52,18 @@ xdg_dir="${XDG_CONFIG_HOME:-$HOME/.config}"
 # List of files to install. Every two elements are logically paired; the first
 # is the repository relative path and the second is the absolute install path.
 files=(
-    "Xresources"    "$HOME/.Xresources"
-    "awesome"       "$xdg_dir/awesome"
     "bashrc"        "$HOME/.bashrc"
     "bashrc.d"      "$HOME/.bashrc.d"
     "colordiffrc"   "$HOME/.colordiffrc"
-    "conkyrc"       "$HOME/.conkyrc"
     "emacs.d/init.el"   "$HOME/.emacs.d/init.el"
     "gdbinit"       "$HOME/.gdbinit"
     "gitconfig"     "$HOME/.gitconfig"
     "hgrc"          "$HOME/.hgrc"
     "inputrc"       "$HOME/.inputrc"
     "profile"       "$HOME/.profile"
-    "profile"       "$HOME/.xsessionrc"
     "profile.d"     "$HOME/.profile.d"
     "screenrc"      "$HOME/.screenrc"
-    "urxvt/ext"     "$HOME/.urxvt/ext"
     "vimrc"         "$HOME/.vimrc"
-    "xinitrc"       "$HOME/.xinitrc"
-    "xinitrc"       "$HOME/.xsession"
-    "xmodmaprc"     "$HOME/.xmodmaprc"
 )
 
 # Execute a command while respecting the -n and -q options.
