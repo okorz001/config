@@ -78,6 +78,9 @@ set tabstop=4
 " Number of spaces to indent/dedent when using <, >.
 set shiftwidth=4
 
+" Use 2 spaces instead of 4 for XML.
+autocmd FileType xml,html setlocal softtabstop=2 tabstop=2 shiftwidth=2
+
 " Guess indentation based off of language syntax.
 set cindent
 
