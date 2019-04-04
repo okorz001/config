@@ -55,7 +55,6 @@ files=(
     "bashrc"        "$HOME/.bashrc"
     "bashrc.d"      "$HOME/.bashrc.d"
     "colordiffrc"   "$HOME/.colordiffrc"
-    "emacs.d/init.el"   "$HOME/.emacs.d/init.el"
     "gdbinit"       "$HOME/.gdbinit"
     "gitconfig"     "$HOME/.gitconfig"
     "hgrc"          "$HOME/.hgrc"
