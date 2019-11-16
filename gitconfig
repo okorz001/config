@@ -163,3 +163,6 @@
 
     # Fetch PR into a local branch and check it out.
     pr = "!f () { git fetch origin pull/$1/head:pr/$1 && git co pr/$1; }; f"
+
+    # The opposite of add -- unstages files from the next commit.
+    unadd = "reset HEAD --"
