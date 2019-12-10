@@ -25,6 +25,10 @@ filetype indent on
 " Enable syntax coloring.
 syntax enable
 
+" Allow modelines (for explicitly setting filetypes).
+set modeline
+set modelines=5
+
 " Disable visual bell.
 set visualbell
 
