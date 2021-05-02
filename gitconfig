@@ -27,6 +27,10 @@
     # Aborts with an error if there is no upstream.
     default = upstream
 
+[pull]
+    # Abort if not a fast-forward merge.
+    ff = only
+
 [merge]
     # If no argument is given, merge the upstream. (Remember to fetch!)
     defaultToUpstream = true
