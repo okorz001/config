@@ -137,9 +137,9 @@ set writebackup
 " Look for a tags file all the way up the filesystem.
 set tags=.tags;/,tags;/,TAGS;/
 
-" Highlight lines that are longer than 80 characters.
+" Highlight lines that are longer than 120 characters.
 highlight LineWrap ctermbg=red ctermfg=white guibg=red guifg=white
-match LineWrap /\%81v.\+/
+match LineWrap /\%121v.\+/
 
 " Make Y act like C, D (i.e. til end of line).
 nmap Y y$
